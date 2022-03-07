@@ -14,12 +14,11 @@ import java.io.IOException;
 @RequestMapping(path = "/api") //used to map web requests to spring controller methods
 public class ControllerAPI {
 
-    @GetMapping(path = "/message", params = {"name"})
-    public Message getMessage(
-            @RequestParam final String name) {
+    @GetMapping(path = "/message")
+    public Message getMessage() {
 
         final Message message = new Message();
-        message.setText("Hello " + name);
+        message.setText("Testing");
         return message;
     }
 }

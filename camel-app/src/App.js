@@ -3,6 +3,24 @@ import './App.css';
 
 
 function App() {
+ const apiUrlPrefix = "http://localhost:8080";
+
+ const testUrl = apiUrlPrefix.concat("/api/message")
+ App.testMessage = () => {
+    console.log("Test message");
+    fetch(testUrl)
+      .then(response => response.json())
+      .then(data => {
+        console.log(data);
+      })
+      .catch(err => {
+        console.log("Cannot connect to API endpoint: %s", testUrl);
+      });
+  }
+
+  App.testMessage()
+
+
   return (
     <div className="App">
       <header className="App-header">
