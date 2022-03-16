@@ -6,26 +6,27 @@ import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 
 public class restaurantScraper {
-    restaurant[] items;
+    String items;
     // Get current location or given location
+
     public restaurantScraper() throws IOException {
 
         String keyword = "halal+food+near+me";
-        String url = "https://www.google.com/search?q=" + keyword;
+        String key = "API Key";
 
-        System.out.println("\n"+url);
-        System.out.println("Starting URL");
+        String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=" + keyword + "&location=40.894810,-74.534020&radius=15000&type=restaurant&key=" + key;
 
-        Document doc = Jsoup.connect(url).get();
-        Elements links = doc.select("a[href]");
+//        System.out.println("\n"+url);
+//        System.out.println("Starting URL");
 
-        for (Element link : links) {
+        String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
+        System.out.println("Connected to Google Maps API - returning results...");
 
-            System.out.println("\nLink : " + link.attr("href"));
-            System.out.println("Text : " + link.text());
-        }
+        this.items = doc;
     }
 }
