@@ -1,13 +1,17 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from './Components';
+import { BrowserRouter as Router, Routes, Route}
+    from 'react-router-dom';
+import Home from './pages/home';
+import Masjids from './pages/mosques';
+import Salah from './pages/prayerinfo';
+import Restaurants from './pages/restaurants';
 
+function message(){
 
-function App() {
- const apiUrlPrefix = "http://localhost:8080";
+    const apiUrlPrefix = "http://localhost:8080";
 
- const testUrl = apiUrlPrefix.concat("/api/message")
- App.testMessage = () => {
-    console.log("Test message");
+    const testUrl = apiUrlPrefix.concat("/api/message")
     fetch(testUrl)
       .then(response => response.json())
       .then(data => {
@@ -16,28 +20,20 @@ function App() {
       .catch(err => {
         console.log("Cannot connect to API endpoint: %s", testUrl);
       });
-  }
+}
+message();
 
-  App.testMessage()
-
-
+function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>
-          Camel App
-        </h1>
-        <img src={logo} className="App-logo" alt="logo" />
-        <a
-          className="App-link"
-          href="https://en.wikipedia.org/wiki/Bactrian_camel"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Mascot
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Navbar />
+        <Routes>
+            <Route exact path='/' exact element={<Home />} />
+            <Route path='/restaurants' element={<Restaurants />} />
+            <Route path='/mosques' element={<Masjids />} />
+            <Route path='/prayerinfo' element={<Salah />} />
+        </Routes>
+    </Router>
   );
 }
 
