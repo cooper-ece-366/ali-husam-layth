@@ -5,7 +5,7 @@ import styled from "styled-components";
 // Navigation bar info found at https://www.geeksforgeeks.org/how-to-create-a-multi-page-website-using-react-js/
 
 export const Nav = styled.nav`
-background: #ffb3ff;
+background: black;
 height: 85px;
 display: flex;
 justify-content: space-between;
@@ -14,7 +14,7 @@ z-index: 12;
 `;
 
 export const NavLink = styled(Link)`
-color: #808080;
+color: #663e05;
 display: flex;
 align-items: center;
 text-decoration: none;
