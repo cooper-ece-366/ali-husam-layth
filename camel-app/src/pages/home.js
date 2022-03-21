@@ -1,5 +1,6 @@
 import React from 'react';
 import logo from '../logo.svg';
+import logo2 from '../logo.jpeg';
 import '../App.css';
 
 const Home = () => {
@@ -9,7 +10,7 @@ const Home = () => {
         <h1>
           Camel
         </h1>
-        <img src={logo} className="App-logo" alt="logo" />
+        <img src={logo2} className="App-logo" alt="logo" />
         <a
           className="App-link"
           href="https://en.wikipedia.org/wiki/Bactrian_camel"
