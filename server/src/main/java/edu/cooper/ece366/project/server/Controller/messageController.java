@@ -1,7 +1,9 @@
-package edu.cooper.ece366.project.server;
+package edu.cooper.ece366.project.server.Controller;
 
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
+
+import edu.cooper.ece366.project.server.Components.Message;
 
 @RestController
 public class messageController {

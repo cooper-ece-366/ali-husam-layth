@@ -1,11 +1,10 @@
 import React from 'react';
-import Navbar from './Components';
-import { BrowserRouter as Router, Routes, Route}
-    from 'react-router-dom';
-import Home from './pages/home';
-import Masjids from './pages/mosques';
-import Salah from './pages/prayerinfo';
-import Restaurants from './pages/restaurants';
+import Navbar from '../Components';
+import { BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import Home from '../pages/home';
+import Masjids from '../pages/mosques';
+import Salah from '../pages/prayerinfo';
+import Restaurants from '../pages/restaurants';
 
 function message(){
 

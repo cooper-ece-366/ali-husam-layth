@@ -1,4 +1,4 @@
-package edu.cooper.ece366.project.server;
+package edu.cooper.ece366.project.server.Components;
 
 import java.io.IOException;
 import java.util.Scanner;
@@ -17,7 +17,7 @@ public class mosqueScraper {
     public mosqueScraper() throws IOException {
 
         String keyword = "mosque";
-        String key = "Insert API key";
+        String key = "API Key";
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=" + keyword + "&location=40.894810,-74.534020&radius=15000&type=mosque&key=" + key;
 

@@ -1,7 +1,8 @@
 import React, {useState, useEffect} from "react";
 import { EventEmitter } from "events";
-import "../App.css"
+import "../App/App.css"
 import { BASE_URL } from '../constants';
+import {fetchGoogle} from '../utils/apiCalls';
 
 class Restaurants extends React.Component {
     constructor() {
@@ -10,28 +11,14 @@ class Restaurants extends React.Component {
           items: []
         };
     }
-
-    fetchData(){
-        var url = BASE_URL + "/api/restaurants";
-        fetch(url)
-              .then(response => response.json())
-              .then(data => {
-//                setState(data);
-                this.setState({
-                    items : data,
-                });
-                console.log(this.state.items.results)
-                }).catch(err => {
-            console.log("Cannot connect to API endpoint: %s", url);
-        });
-    };
-
-    componentDidMount() {
-        this.fetchData();
-     }
-
-
-//    console.log(items.results)
+  componentDidMount() {
+      let url = BASE_URL + "/api/restaurants";
+      fetchGoogle(url).then(response => {
+        this.setState({
+            items: response
+        })
+      });
+    }
   render(){
       return (
         <div className="App-header">
