@@ -22,6 +22,6 @@ public class restaurantController {
     public String getRestaurants() throws IOException {
         final restaurantScraper test = new restaurantScraper();
         LOGGER.info("Connected to Google Places API");
-        return test.items;
+        return test.getItems();
     }
 }

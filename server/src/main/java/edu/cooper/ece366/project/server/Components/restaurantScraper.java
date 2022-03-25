@@ -28,4 +28,8 @@ public class restaurantScraper {
 
         this.items = doc;
     }
+
+    public String getItems(){
+        return this.items;
+    }
 }

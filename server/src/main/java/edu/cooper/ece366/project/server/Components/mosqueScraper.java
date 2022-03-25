@@ -29,5 +29,9 @@ public class mosqueScraper {
 
         this.items = doc;
     }
+
+    public String getItems(){
+        return this.items;
+    }
 }
 

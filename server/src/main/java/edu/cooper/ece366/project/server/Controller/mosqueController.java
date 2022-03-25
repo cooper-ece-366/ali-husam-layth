@@ -20,6 +20,6 @@ public class mosqueController {
     public String getMosques() throws IOException {
         final mosqueScraper test = new mosqueScraper();
         LOGGER.info("Connected to Google Places API");
-        return test.items;
+        return test.getItems();
     }
 }
