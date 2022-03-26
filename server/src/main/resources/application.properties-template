@@ -1,6 +1,0 @@
-app.version=FULLAPPBUILDNUM
-maven.version=MVNVERSION
-debug=false
-logging.level.org.springframework.boot.autoconfigure=INFO
-# Comma separated list of allowed origins
-app.cors.allowedOrigins = http://localhost:3000

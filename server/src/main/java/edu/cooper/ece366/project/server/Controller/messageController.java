@@ -6,12 +6,11 @@ import org.springframework.web.bind.annotation.*;
 import edu.cooper.ece366.project.server.Components.Message;
 
 @RestController
-@CrossOrigin
-@RequestMapping(value = "/api")
 public class messageController {
 //    private static final Logger LOGGER = LoggerFactory.getLogger(ControllerApi.class);
 
-    @GetMapping(path = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
+    @CrossOrigin
+    @GetMapping(path = "/api/message", produces = MediaType.APPLICATION_JSON_VALUE)
     public Message getMessage() {
 
         final Message message = new Message();

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from "react";
+import { EventEmitter } from "events";
 import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls';
