@@ -37,7 +37,7 @@ class Masjids extends React.Component {
                         </thead>
                         <tbody>
                             {this.state.items.results && this.state.items.results.map(place =>
-                                <tr key={place.id}>
+                                <tr key={place.place_id}>
                                     <td>{place.name}</td>
                                     <td>{place.vicinity}</td>
                                     <td>{place.rating}</td>

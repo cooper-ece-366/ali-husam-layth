@@ -22,6 +22,9 @@ const Navbar = () => {
           <NavLink to="/mosques">
             Masjid Info
           </NavLink>
+          <NavLink to="/login">
+            Profile
+          </NavLink>
         </NavMenu>
       </Nav>
     </>
