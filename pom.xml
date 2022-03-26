@@ -34,12 +34,23 @@
 		<exec-maven-plugin.version>3.0.0</exec-maven-plugin.version>
 		<ece366-commons.version>${project.version}</ece366-commons.version>
 		<single-node-threaded-app.version>${project.version}</single-node-threaded-app.version>
-
+		<google.guava.version>31.1-jre</google.guava.version>
 		<log4j.version>2.17.1</log4j.version>
 		<logback.version>1.2.10</logback.version>
 		<slf4j.version>1.7.33</slf4j.version>
 		<junit-version>4.13.1</junit-version>
 		<testng.version>7.3.0</testng.version>
+		<jackson.version>2.13.2</jackson.version>
+		<mysql.version>8.0.28</mysql.version>
+
+		<spring.boot.version>2.6.3</spring.boot.version>
+		<spring.jpa.version>2.6.2</spring.jpa.version>
+		<spring.webmvc.version>5.3.15</spring.webmvc.version>
+		<spring.security.core>5.6.2</spring.security.core>
+		<spring.security.oauth2>2.5.1.RELEASE</spring.security.oauth2>
+
+		<nimbusds.oauth2-oidc-sdk.version>9.27</nimbusds.oauth2-oidc-sdk.version>
+		<jsonwebtoken.version>0.11.2</jsonwebtoken.version>
 <!--
 		<apache.commons.logging.version>1.0.4.v200706111724</apache.commons.logging.version>
 -->
@@ -323,9 +334,90 @@
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
+				<!-- Import dependency management from Spring Boot -->
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-dependencies</artifactId>
+				<version>${spring.boot.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-starter-data-jpa</artifactId>
+				<version>2.6.4</version>
+			</dependency>
+			<dependency>
+				<groupId>org.springframework</groupId>
+				<artifactId>spring-tx</artifactId>
+				<version>5.3.17</version>
+			</dependency>
+			
+			<dependency>
+				<groupId>org.springframework.security</groupId>
+				<artifactId>spring-security-oauth2-client</artifactId>
+				<version>5.6.2</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.springframework.security.oauth</groupId>
+				<artifactId>spring-security-oauth2</artifactId>
+				<version>2.5.1.RELEASE</version>
+			</dependency>
+
+			<dependency>
+				<groupId>mysql</groupId>
+				<artifactId>mysql-connector-java</artifactId>
+				<version>${mysql.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>com.google.guava</groupId>
+				<artifactId>guava</artifactId>
+				<version>${google.guava.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>com.nimbusds</groupId>
+				<artifactId>oauth2-oidc-sdk</artifactId>
+				<version>${nimbusds.oauth2-oidc-sdk.version}</version>
+				<!-- scope>runtime</scope -->
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-api</artifactId>
+				<version>${jsonwebtoken.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-impl</artifactId>
+				<version>${jsonwebtoken.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>io.jsonwebtoken</groupId>
+				<artifactId>jjwt-jackson</artifactId>
+				<version>${jsonwebtoken.version}</version>
+				<scope>runtime</scope>
+			</dependency>
+			<dependency>
+				<groupId>javax.validation</groupId>
+				<artifactId>validation-api</artifactId>
+				<version>2.0.1.Final</version>
+			</dependency>
+			<dependency>
+				<groupId>javax.persistence</groupId>
+				<artifactId>javax.persistence-api</artifactId>
+				<version>2.2</version>
+			</dependency>
+
+
+
+			<dependency>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-starter-web</artifactId>
 			</dependency>
+
 <!--
 			<dependency>
 				<groupId>edu.cooper.ece366</groupId>
@@ -385,6 +477,7 @@
                             <version>${gson.version}</version>
                         </dependency>
             -->
+
         </dependencies>
 	</dependencyManagement>
 </project>

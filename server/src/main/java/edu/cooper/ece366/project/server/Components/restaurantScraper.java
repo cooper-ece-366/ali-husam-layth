@@ -16,7 +16,7 @@ public class restaurantScraper {
     public restaurantScraper() throws IOException {
 
         String keyword = "halal";
-        String key = "API Key";
+        String key = "AIzaSyCrpzxWXxqpOFe6BcD60JMZ7nw_gpyGems";
 
         String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=" + keyword + "&location=40.894810,-74.534020&radius=15000&type=restaurant&key=" + key;
 
