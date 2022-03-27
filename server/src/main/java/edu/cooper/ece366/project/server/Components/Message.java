@@ -1,4 +1,4 @@
-package edu.cooper.ece366.project.server;
+package edu.cooper.ece366.project.server.Components;
 
 public class Message {
 
