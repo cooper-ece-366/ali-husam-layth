@@ -25,6 +25,8 @@ const request = (options) => {
 };
 
 export function getCurrentUser() {
+    // location.reload();
+    // console.log(localStorage.getItem(ACCESS_TOKEN));
     if(!localStorage.getItem(ACCESS_TOKEN)) {
         return Promise.reject("No access token set.");
     }

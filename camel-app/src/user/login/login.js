@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './login.css';
 import { GOOGLE_AUTH_URL, FACEBOOK_AUTH_URL, GITHUB_AUTH_URL, ACCESS_TOKEN } from '../../constants';
 import { login } from '../../utils/apiCalls';
-import { Link, Route } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import fbLogo from '../../img/fb-logo.png';
 import googleLogo from '../../img/google-logo.png';
 import githubLogo from '../../img/github-logo.png';
@@ -12,6 +12,7 @@ class Login extends Component {
     componentDidMount() {
         // If the OAuth2 login encounters an error, the user is redirected to the /login page with an error.
         // Here we display the error and then remove the error query parameter from the location.
+
         console.log(this.props);
         if(this.props.location.state && this.props.location.state.error) {
             setTimeout(() => {
@@ -28,17 +29,16 @@ class Login extends Component {
     
     render() {
         if(this.props.authenticated) {
-            return <Route
-                path={{
+            return <Redirect
+                to={{
                 pathname: "/",
                 state: { from: this.props.location }
             }}/>;            
         }
-
         return (
             <div className="login-container">
                 <div className="login-content">
-                    <h1 className="login-title">Login to SpringSocial</h1>
+                    <h1 className="login-title">Login to Camel</h1>
                     <SocialLogin />
                     <div className="or-separator">
                         <span className="or-text">OR</span>
@@ -99,6 +99,7 @@ class LoginForm extends Component {
             console.log("ACCESS_TOKEN = " + response.accessToken);
             Alert.success("You're successfully logged in!");
             this.props.history.push("/");
+            window.location.reload();
         }).catch(error => {
             Alert.error((error && error.message) || 'Oops! Something went wrong. Please try again!');
         });
