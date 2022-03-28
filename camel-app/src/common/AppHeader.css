@@ -20,7 +20,6 @@ body {
     justify-content: space-between;
     padding-left: 30px; 
     padding-right: 10px; 
-    color: white; 
     background: rgba(0, 0, 0, 0.801); 
 }
 ul {
@@ -81,9 +80,14 @@ ul {
 }
 
 .app-nav ul li a:hover {
-    color: #0f96f6;
+    color: #f5900b;
 }
 
-.app-nav ul li a.active {
-    color: #0f96f6;
+ul li a.active {
+    color: #f5900b;
+}
+
+.profile {
+    border-left: 1px solid #78350f;
+    margin: 4px 0px; 
 }

@@ -1,10 +1,12 @@
 .signup-container {
     text-align: center;
+    background-color: black;
 }
 
 
 .signup-content {
     background: #fff;
+    border: solid 5px #92400e;
     box-shadow: 0 1px 11px rgba(0, 0, 0, 0.27);
     border-radius: 2px;
     width: 500px;

@@ -19,13 +19,13 @@ class AppHeader extends Component {
                         <nav className="app-nav">
                             <ul>
                                 <li>
-                                    <Link to="/restaurants">Halal Nearby </Link>
+                                    <NavLink to="/restaurants">Halal Nearby </NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/prayerinfo">Salah Times</Link>
+                                    <NavLink to="/prayerinfo">Salah Times</NavLink>
                                 </li>
                                 <li>
-                                    <Link to="/mosques">Masjid Info</Link>
+                                    <NavLink to="/mosques">Masjid Info</NavLink>
                                 </li>
                             </ul>
                         </nav>
@@ -35,7 +35,8 @@ class AppHeader extends Component {
                             {this.props.authenticated ? (
                                 <ul>
                                     <li>
-                                        <NavLink to="/profile">Profile</NavLink>
+                                        {/* <img src={this.props.currentUser.imageUrl} alt={this.props.currentUser.name}/> */}
+                                        <NavLink to="/profile" className="profile">Profile</NavLink>
                                     </li>
                                     <li>
                                         <a onClick={this.props.onLogout}>

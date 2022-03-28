@@ -102,7 +102,7 @@ class App extends Component {
             <Route path='/restaurants' component={Restaurants} />
             <Route path='/mosques' component={Masjids} />
             <Route path='/prayerinfo' component={Salah} />
-            <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser}
+            <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} 
               component={Profile}></PrivateRoute>
             <Route path="/login"
               render={(props) => <Login authenticated={this.state.authenticated} {...props} />}></Route>
