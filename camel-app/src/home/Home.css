@@ -1,14 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+
+* {
+    font-family: "Sawarabi Mincho"; 
+}
 .home-container {
     text-align: center;
     min-height: calc(100vh - 60px);
     overflow: auto;
     position: relative;
-    padding-top: 60px;
-    background-color: #282c34 ;
+    /* background-color: #282c34 ; */
+    background: url(../desertBackground.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
+.camel-main {
+    color: #92400e; 
+    font-size: 69px; 
+    opacity: 20; 
+}
 .App-header {
-    background-color: #282c34;
+    background: none;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -20,31 +33,31 @@
 
 .App-logo {
     width: 400px;
-    height: 300px;
+    height: 500px;
     pointer-events: none;
-    margin: 100px;
+    margin: 50px;
 }
 
 @media (prefers-reduced-motion: no-preference) {
     .App-logo {
-      animation: App-logo-spin infinite 20s linear;
+        animation: App-logo-spin infinite 20s linear;
     }
 }
 
 @keyframes App-logo-spin {
     from {
-      transform: rotate(0deg);
+        transform: rotate(0deg);
     }
     to {
-      transform: rotate(360deg);
+        transform: rotate(360deg);
     }
 }
 
 .home-title {
     font-size: 25px;
     font-weight: 400;
-    color: rgba(0,0,0,0.70);
-    margin-top: 50px; 
+    color: rgba(0, 0, 0, 0.7);
+    margin-top: 50px;
 }
 
 .graf-bg-container {
@@ -52,7 +65,7 @@
     height: 310px;
     overflow: hidden;
     perspective: 2000px;
-    opacity: .7
+    opacity: 0.7;
 }
 
 .graf-layout {
@@ -66,20 +79,22 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateY(1000deg) rotateX(1000deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateY(1000deg) rotateX(1000deg)
+        rotate(0deg);
     width: 50px;
     height: 50px;
     border-radius: 50%;
     border: 5px solid #2098f3;
     animation: scaleOne 5.5s infinite alternate linear;
-    opacity: 0
+    opacity: 0;
 }
 
 @keyframes scaleOne {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateY(180deg) rotateX(90deg) rotate(1000deg);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateY(180deg) rotateX(90deg)
+            rotate(1000deg);
+        opacity: 0;
     }
 }
 
@@ -87,21 +102,23 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(135deg) rotateY(135deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(135deg) rotateY(135deg)
+        rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #ffa20a;
     border-left: none;
     border-top: none;
-    animation: scaleTwo 5s infinite alternate linear
+    animation: scaleTwo 5s infinite alternate linear;
 }
 
 @keyframes scaleTwo {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(135deg) rotateY(135deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(135deg) rotateY(135deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -109,21 +126,22 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(45deg) rotateY(45deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #ec412c;
     border-bottom: none;
     border-left: none;
-    animation: scaleThree 4.5s infinite alternate linear
+    animation: scaleThree 4.5s infinite alternate linear;
 }
 
 @keyframes scaleThree {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(45deg) rotateY(45deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(45deg) rotateY(45deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -131,21 +149,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(45deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(45deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #fcbd00;
     border-top: none;
     border-right: none;
-    animation: scaleFour 4s infinite alternate linear
+    animation: scaleFour 4s infinite alternate linear;
 }
 
 @keyframes scaleFour {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(45deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(45deg) rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -153,21 +171,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(135deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(135deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #2da94f;
     border-bottom: none;
     border-left: none;
-    animation: scaleFive 3.5s infinite alternate linear
+    animation: scaleFive 3.5s infinite alternate linear;
 }
 
 @keyframes scaleFive {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(135deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(135deg) rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -175,21 +193,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(100deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(100deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 15px solid #f57700;
     border-bottom: none;
     border-right: none;
-    animation: scaleSix 3s infinite alternate linear
+    animation: scaleSix 3s infinite alternate linear;
 }
 
 @keyframes scaleSix {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(100deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(100deg) rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -197,21 +215,21 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateY(-105deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateY(-105deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 10px solid #2098f3;
     border-bottom: none;
     border-left: none;
-    animation: scaleSeven 2.5s infinite alternate linear
+    animation: scaleSeven 2.5s infinite alternate linear;
 }
 
 @keyframes scaleSeven {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateY(-105deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateY(-105deg) rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -219,21 +237,22 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateY(45deg) rotateX(45deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateY(45deg) rotateX(45deg) rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #30bbb0;
     border-bottom: none;
     border-left: none;
-    animation: scaleEight 2s infinite alternate linear
+    animation: scaleEight 2s infinite alternate linear;
 }
 
 @keyframes scaleEight {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateY(45deg) rotateX(45deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateY(45deg) rotateX(45deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -241,21 +260,23 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateY(135deg) rotateX(135deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateY(135deg) rotateX(135deg)
+        rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #ff453c;
     border-bottom: none;
     border-right: none;
-    animation: scaleNine 1.5s infinite alternate linear
+    animation: scaleNine 1.5s infinite alternate linear;
 }
 
 @keyframes scaleNine {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateY(135deg) rotateX(135deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateY(135deg) rotateX(135deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -263,21 +284,23 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateY(113deg) rotateX(115deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateY(113deg) rotateX(115deg)
+        rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #2098f3;
     border-bottom: none;
     border-right: none;
-    animation: scaleTen 3s infinite alternate linear
+    animation: scaleTen 3s infinite alternate linear;
 }
 
 @keyframes scaleTen {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateY(113deg) rotateX(115deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateY(113deg) rotateX(115deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }
 
@@ -285,20 +308,22 @@
     position: absolute;
     top: 50%;
     left: 50%;
-    transform: translate(-50%,-50%) rotateX(-45deg) rotateY(-45deg) rotate(0deg);
+    transform: translate(-50%, -50%) rotateX(-45deg) rotateY(-45deg)
+        rotate(0deg);
     width: 310px;
     height: 310px;
     border-radius: 50%;
     border: 5px solid #2098f3;
     border-bottom: none;
     border-right: none;
-    animation: scaleEleven 2s infinite alternate linear
+    animation: scaleEleven 2s infinite alternate linear;
 }
 
 @keyframes scaleEleven {
     to {
         border-radius: 50%;
-        transform: translate(-50%,-50%) rotateX(-45deg) rotateY(-45deg) rotate(1turn);
-        opacity: 0
+        transform: translate(-50%, -50%) rotateX(-45deg) rotateY(-45deg)
+            rotate(1turn);
+        opacity: 0;
     }
 }

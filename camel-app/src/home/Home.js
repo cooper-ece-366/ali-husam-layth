@@ -8,7 +8,8 @@ class Home extends Component {
     render() {
         return (
             <div className="home-container">
-                <div className="container">
+                <div className="camel-container">
+                    <h1 className="camel-main"> Camel </h1>
                     <div className="App">
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo" />
@@ -22,7 +23,6 @@ class Home extends Component {
                             </a>
                         </header>
                     </div>
-                    <h1 className="home-title">{THE_APP_NAME} Demo</h1>
                 </div>
             </div>
         )
