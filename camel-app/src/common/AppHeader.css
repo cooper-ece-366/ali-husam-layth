@@ -1,10 +1,32 @@
+@import url('https://fonts.googleapis.com/css2?family=Sawarabi+Mincho&display=swap');
+* {
+    font-family: "Sawarabi Mincho"
+}
+body {
+    background: black; 
+}
+.icon {
+    height: 50px; 
+    width: 50px; 
+}
 .app-header {
     height: 60px;
     position: relative;
-    z-index: 10;
+    z-index: 1;  
 }
-
-.public{
+.home-header-container {
+    display: flex; 
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 30px; 
+    padding-right: 10px; 
+    color: white; 
+    background: rgba(0, 0, 0, 0.801); 
+}
+ul {
+    text-align: center; 
+}
+.public {
     float: left;
     height: 60px;
     width: 420px;
@@ -14,6 +36,9 @@
     line-height: 60px;
     vertical-align: middle;
     font-size: 1.35em;
+    display: flex; 
+    justify-content: center;
+    align-items: center;
 }
 
 .app-branding {
@@ -24,13 +49,13 @@
     float: right;
 }
 
-.app-branding ul{
+.app-branding ul {
     list-style-position: none;
     margin: 0;
-    padding: 0;    
+    padding: 0;
 }
 
-.app-branding ul li{
+.app-branding ul li {
     list-style-type: none;
     display: inline-block;
 }
@@ -52,13 +77,13 @@
     vertical-align: middle;
     padding-left: 15px;
     padding-right: 15px;
-    color: rgba(0,0,0,0.65);
+    color: #92400e; 
 }
 
 .app-nav ul li a:hover {
     color: #0f96f6;
 }
 
-.app-nav ul li a.active{
+.app-nav ul li a.active {
     color: #0f96f6;
 }
