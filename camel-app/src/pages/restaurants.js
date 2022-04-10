@@ -13,7 +13,7 @@ class Restaurants extends React.Component {
 
   componentDidMount() {
       let url = BASE_URL + "/api/restaurants";
-      url = url + "?lat=" + this.props.lat.toString(10) + "&lng=" + this.props.lng.toString(10);
+      url = url + "?lat=" + this.props.lat + "&lng=" + this.props.lng;
       fetchGoogle(url).then(response => {
         this.setState({
             items: response
