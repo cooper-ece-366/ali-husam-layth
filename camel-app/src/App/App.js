@@ -36,13 +36,25 @@ function message(){
 }
 message();
 
+var options = {
+  enableHighAccuracy: true,
+  timeout: 5000,
+  maximumAge: 0,
+};
+
+function errors(err) {
+  console.warn(`ERROR(${err.code}): ${err.message}`);
+}
+
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
       authenticated: false,
       currentUser: null,
-      loading: true
+      loading: true,
+      lat: "",
+      lng: ""
     }
 
     this.loadCurrentlyLoggedInUser = this.loadCurrentlyLoggedInUser.bind(this);
@@ -73,8 +85,18 @@ class App extends Component {
     Alert.success("You're safely logged out!");
   }
 
+  success(pos) {
+      var crd = pos.coords;
+
+      console.log("Your current position is:");
+      console.log(`Latitude : ${crd.latitude}`);
+      console.log(`Longitude: ${crd.longitude}`);
+      console.log(`More or less ${crd.accuracy} meters.`);
+
+  }
+
   
-  componentDidMount() {
+  componentDidMount = () => {
     window.onload = function() {
       if(!window.location.hash) {
         window.location = window.location + '#loaded';
@@ -83,7 +105,39 @@ class App extends Component {
     }
     this.loadCurrentlyLoggedInUser();
     //Add page to reload once login is complete
-    // window.location.reload();
+
+  const success = position => {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    console.log(latitude, longitude);
+    this.setState({
+      lat: latitude,
+      lng: longitude
+    });
+  };
+
+    //Geolocation services
+      if (navigator.geolocation) {
+         navigator.permissions
+         .query({ name: "geolocation" })
+         .then(function (result) {
+             if (result.state === "granted") {
+                console.log(result.state);
+                //If granted then you can directly call your function here
+                navigator.geolocation.getCurrentPosition(success);
+
+             } else if (result.state === "prompt") {
+                navigator.geolocation.getCurrentPosition(success, errors, options);
+             } else if (result.state === "denied") {
+                //If denied then you have to show instructions to enable location
+             }
+             result.onchange = function () {
+                console.log(result.state);
+         };
+      });
+      } else {
+        alert("Sorry Not available!");
+      }
   }
 
   render()
@@ -99,8 +153,8 @@ class App extends Component {
         <div className="app-body">
           <Switch>
             <Route exact path="/" component={Home}></Route>
-            <Route path='/restaurants' component={Restaurants} />
-            <Route path='/mosques' component={Masjids} />
+            <Route path='/restaurants' component={() => <Restaurants lat={this.state.lat} lng={this.state.lng} />}  />
+            <Route path='/mosques' component={() => <Masjids lat={this.state.lat} lng={this.state.lng} />} />
             <Route path='/prayerinfo' component={Salah} />
             <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} 
               component={Profile}></PrivateRoute>
