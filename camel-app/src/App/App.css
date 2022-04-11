@@ -9,5 +9,6 @@
 .app{
   background-color: #111111;
   height: calc(100vh);
+  color: #92400e; 
   overflow: scroll; 
 }
