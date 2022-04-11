@@ -1,3 +1,4 @@
+// Author: Layth Yassin
 package edu.cooper.ece366.project.server.Components;
 
 import org.json.JSONArray;
@@ -16,8 +17,6 @@ public class salahScraper {
 
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
         System.out.println("Connected to IslamicFinder API - returning results...");
-
-        System.out.println(doc);
 
         this.items = doc;
     }
