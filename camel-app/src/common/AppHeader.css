@@ -9,6 +9,10 @@ body {
     height: 50px; 
     width: 50px; 
 }
+.app-title {
+    float: left; 
+    padding-left: 10px; 
+}
 .app-header {
     height: 60px;
     position: relative;
@@ -18,9 +22,11 @@ body {
     display: flex; 
     align-items: center;
     justify-content: space-between;
-    padding-left: 30px; 
+    padding-left: 10px; 
     padding-right: 10px; 
-    background: rgba(0, 0, 0, 0.801); 
+    background: rgba(0, 0, 0, 0.899); 
+    position: fixed; 
+    width: 100%; 
 }
 ul {
     text-align: center; 
@@ -42,6 +48,7 @@ ul {
 
 .app-branding {
     float: left;
+    width: 158px; 
 }
 
 .app-options {
@@ -52,6 +59,7 @@ ul {
     list-style-position: none;
     margin: 0;
     padding: 0;
+    width: 158px; 
 }
 
 .app-branding ul li {

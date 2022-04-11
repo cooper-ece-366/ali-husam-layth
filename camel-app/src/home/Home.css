@@ -12,16 +12,21 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-.App-link {
-    margin-top: 100px; 
+.about-link {
+    position: absolute; 
+    opacity: 30%; 
     color: #92400e; 
+    bottom: 20px; 
+}
+.about-link:hover {
+    color: #f5900b;
 }
 .camel-main {
-    padding: 0; 
+    padding-top: 20px; 
     margin-top: 10px; 
     color: #92400e; 
     font-size: 69px; 
-    opacity: 20; 
+    opacity: 70%; 
 }
 .App-header {
     background: none;
