@@ -18,10 +18,13 @@ public class restaurantController {
     @Value("${google.api}")
     private String google_api;
 
+    @Value("${google.url}")
+    private String url;
+
     @CrossOrigin
     @GetMapping(path = "/api/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getRestaurants(@RequestParam String lat, @RequestParam String lng) throws IOException {
-        final mapsApi test = new mapsApi("halal", this.google_api, "restaurant", lat, lng);
+        final mapsApi test = new mapsApi("halal", this.google_api, "restaurant", lat, lng, this.url);
         LOGGER.info("Connected to Google Places API");
         return test.getItems();
     }

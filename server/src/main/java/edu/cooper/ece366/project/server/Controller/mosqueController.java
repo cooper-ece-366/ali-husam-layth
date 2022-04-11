@@ -18,10 +18,13 @@ public class mosqueController {
     @Value("${google.api}")
     private String google_api;
 
+    @Value("${google.url}")
+    private String url; 
+
     @CrossOrigin
     @GetMapping(path = "/api/mosques", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getMosques(@RequestParam String lat, @RequestParam String lng) throws IOException {
-        final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng);
+        final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url);
         LOGGER.info("Connected to Google Places API");
         return test.getItems();
     }

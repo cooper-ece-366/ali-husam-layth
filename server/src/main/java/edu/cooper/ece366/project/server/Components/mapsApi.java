@@ -13,20 +13,21 @@ public class mapsApi {
 
 
     String keyword;
-    String url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=";
+    String url;
     String google_api;
     String type;
     String lat;
     String lng;
 
 
-    public mapsApi(String keyword, String google_api, String type, String lat, String lng){
+    public mapsApi(String keyword, String google_api, String type, String lat, String lng, String url){
         this.keyword = keyword;
         this.google_api = google_api;
         this.type = type;
         System.out.println(lat+lng);
         this.lat = lat;
         this.lng = lng;
+        this.url = url; 
     }
 
 
