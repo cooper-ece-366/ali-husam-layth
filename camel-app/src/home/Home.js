@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
-import '../constants/index.js';
-import './Home.css';
-import logo from '../logo.png';
-import {THE_APP_NAME} from "../constants";
+import React, { Component } from "react";
+import "../constants/index.js";
+import "./Home.css";
+import logo from "../logo.png";
+import { THE_APP_NAME } from "../constants";
+import { Link } from "react-router-dom";
 
 class Home extends Component {
     render() {
@@ -13,19 +14,14 @@ class Home extends Component {
                     <div className="App">
                         <header className="App-header">
                             <img src={logo} className="App-logo" alt="logo" />
-                            <a
-                            className="App-link"
-                            href="https://en.wikipedia.org/wiki/Bactrian_camel"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            >
-                            Mascot
-                            </a>
+                        <Link to="/about" className="about-link">
+                            About
+                        </Link>
                         </header>
                     </div>
                 </div>
             </div>
-        )
+        );
     }
 }
 
