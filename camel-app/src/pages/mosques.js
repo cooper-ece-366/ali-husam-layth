@@ -14,12 +14,15 @@ class Masjids extends React.Component {
     
     componentDidMount() {
         let url = BASE_URL + "/api/mosques";
+        url = url + "?lat=" + this.props.lat + "&lng=" + this.props.lng;
         fetchGoogle(url).then(response => {
           this.setState({
               items: response
           })
         });
+
       }
+
 
     render(){
         return (

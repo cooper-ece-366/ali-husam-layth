@@ -23,6 +23,6 @@ public class Server {
         LOGGER.info("Starting application...");
         SpringApplication.run(Server.class, args);
 //        System.out.println("The server says hello!");
-        LOGGER.info("Running RestApiServer.");
+        LOGGER.info("Running Camel Server");
     }
 }

@@ -10,13 +10,16 @@ class Restaurants extends React.Component {
           items: []
         };
     }
+
   componentDidMount() {
       let url = BASE_URL + "/api/restaurants";
+      url = url + "?lat=" + this.props.lat + "&lng=" + this.props.lng;
       fetchGoogle(url).then(response => {
         this.setState({
             items: response
         })
       });
+//      console.log(this.props.lat)
     }
   render(){
       return (
@@ -24,6 +27,7 @@ class Restaurants extends React.Component {
           <h1>
             Restaurants In Your Area
           </h1>
+
           <table className="table table-striped table-bordered">
               <thead>
                   <tr>
