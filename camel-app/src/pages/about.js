@@ -30,6 +30,10 @@ class About extends React.Component {
                         <p className="about-text">I like water.</p>
                     </div>
                 </div>
+				<div className="why-camel">
+					<h1 className="why-camel-header">Why Camel?</h1>
+					<p className="why-camel-text">We are Muslims interning in Seattle this summer and thought of this app idea. We would love an all in one place for food and Mosques and thought we would bring our idea to life with this app!</p>
+				</div>
                 <div className="fun-facts">
                     <h1>Camel Fun Facts!</h1>
                     <div className="fun-facts-image-container">

@@ -64,6 +64,26 @@
     background-size: cover;
 }
 
+.why-camel {
+	background: no-repeat center url(../img/why-camel-background.jpeg);
+    background-size: cover;
+	height: calc(100vh - 70px); 
+	padding-left: 50px; 
+	margin-bottom: -22px; 
+}
+.why-camel-header {
+	color: #78350f;
+	border-bottom: 1px solid brown; 
+	width: fit-content; 
+	margin-left: 30px; 
+}
+.why-camel-text {
+	color: #78350f;
+	font-size: 25px; 
+	width: 1200px; 
+	margin-left: 50px; 
+}
+
 .fun-facts {
 	color: #fef3c7;
 	background: rgb(22, 22, 22); 
