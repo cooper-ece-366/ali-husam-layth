@@ -2,6 +2,7 @@ import React, {useState, useEffect} from "react";
 import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls';
+import { onSubmit } from "../utils/apiCalls";
 
 const google = window.google;
 
@@ -43,8 +44,8 @@ class Restaurants extends React.Component {
         items: response
       })
     });
-//      console.log(this.props.lat)
     }
+
   render(){
       var city = "";
       if (this.state.city){
@@ -56,7 +57,7 @@ class Restaurants extends React.Component {
             Restaurants Nearby 
           </h1>
           <h3> Showing Results Nearby {city}</h3>
-          <form>
+          <form onSubmit={onSubmit}>
             <input placeholder="Enter a City or ZIP" onChange={this.newCity} value={this.state.city}></input>
             <button onClick={this.getCoords}>
               Submit

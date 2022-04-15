@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from "react";
 import { EventEmitter } from "events";
+import { onSubmit } from "../utils/apiCalls";
 import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls'
@@ -44,9 +45,7 @@ class Masjids extends React.Component {
               items: response
           })
         });
-
-      }
-
+    }
 
     render(){
         var city = "";
@@ -59,8 +58,8 @@ class Masjids extends React.Component {
                 Masjid Info!
             </h1>
             <h3> Showing Results Nearby {city}</h3>
-            <form>
-                <input placeholder="Enter a City or ZIP" onChange={this.newCity} value={this.state.city}></input>
+            <form onSubmit={onSubmit}>
+                <input placeholder="Enter a City or ZIP" onChange={this.newCity} value={this.state.city} ></input>
                 <button onClick={this.getCoords}>
                 Submit
                 </button>

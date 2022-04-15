@@ -69,3 +69,8 @@ export function fetchGoogle(url){
         method: 'GET'
     });
 }
+
+export const onSubmit = (e) => {
+    e.preventDefault();
+    // console.log("refresh prevented");
+};
