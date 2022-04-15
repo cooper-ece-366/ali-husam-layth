@@ -8,14 +8,38 @@ class Masjids extends React.Component {
     constructor() {
         super();
         this.state = {
-          items: []
+          items: [], 
+          city: ""
         };
+        this.newCity = this.newCity.bind(this);
+        this.getCoords = this.getCoords.bind(this);
     }
     
-    componentDidMount() {
-        let url = BASE_URL + "/api/mosques";
-        url = url + "?lat=" + this.props.lat + "&lng=" + this.props.lng;
-        fetchGoogle(url).then(response => {
+    url = BASE_URL + "/api/mosques"
+
+    newCity(event){
+        this.setState({city: event.target.value});
+        // console.log(this.state.city)
+    }
+
+    getCoords() {
+        this.props.getCoords(this.state.city).then( param => {
+          let lat = param.results[0].geometry.location.lat();
+          let lng = param.results[0].geometry.location.lng();
+          // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
+          fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
+            this.setState({
+              items: response
+            })
+          });
+        })
+      }
+
+
+    componentDidMount() {;
+        var lat = this.props.coords[0]
+        var lng = this.props.coords[1]
+        fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
           this.setState({
               items: response
           })
@@ -25,11 +49,22 @@ class Masjids extends React.Component {
 
 
     render(){
+        var city = "";
+        if (this.state.city){
+          city = this.state.city
+        }
         return (
             <div className="App-header">
             <h1>
                 Masjid Info!
             </h1>
+            <h3> Showing Results Nearby {city}</h3>
+            <form>
+                <input placeholder="Enter a City or ZIP" onChange={this.newCity} value={this.state.city}></input>
+                <button onClick={this.getCoords}>
+                Submit
+                </button>
+            </form>
             <table className="table table-striped table-bordered">
                         <thead>
                             <tr>

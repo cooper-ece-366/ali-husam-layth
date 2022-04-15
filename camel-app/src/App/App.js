@@ -19,7 +19,10 @@ import LoadingIndicator from "../common/LoadingIndicator";
 import OAuth2RedirectHandler from "../user/oath/OAuth2RedirectHandler";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
+import { fetchGoogle } from "../utils/apiCalls";
 import "./App.css";
+
+const google = window.google;
 
 function message() {
     const apiUrlPrefix = "http://localhost:8080";
@@ -57,7 +60,7 @@ class App extends Component {
       lng: ""
     }
         this.loadCurrentlyLoggedInUser =
-            this.loadCurrentlyLoggedInUser.bind(this);
+        this.loadCurrentlyLoggedInUser.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
 
@@ -75,6 +78,23 @@ class App extends Component {
                     loading: false,
                 });
             });
+    }
+    getCoords(city) {
+      var geocoder = new google.maps.Geocoder();
+      var address = city;
+      var lat = '';
+      var lng = '';
+      return geocoder.geocode({ 'address': address }, function (results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          // console.log("TEST")
+          lat = results[0].geometry.location.lat();
+          lng = results[0].geometry.location.lng();
+          // alert("Latitude: " + lat + "\nLongitude: " + lng);
+          console.log(lat,lng)
+        } else {
+          alert("Please enter a valid area");
+        }
+      })
     }
 
     handleLogout() {
@@ -119,23 +139,7 @@ class App extends Component {
 
     //Geolocation services
       if (navigator.geolocation) {
-         navigator.permissions
-         .query({ name: "geolocation" })
-         .then(function (result) {
-             if (result.state === "granted") {
-                console.log(result.state);
-                //If granted then you can directly call your function here
-                navigator.geolocation.getCurrentPosition(success);
-
-             } else if (result.state === "prompt") {
-                navigator.geolocation.getCurrentPosition(success, errors, options);
-             } else if (result.state === "denied") {
-                //If denied then you have to show instructions to enable location
-             }
-             result.onchange = function () {
-                console.log(result.state);
-         };
-      });
+        navigator.geolocation.getCurrentPosition(success, errors, options);
       } else {
         alert("Sorry Not available!");
       }
@@ -153,8 +157,8 @@ class App extends Component {
             <div className="app-body">
               <Switch>
                 <Route exact path="/" component={Home}></Route>
-                <Route path='/restaurants' component={() => <Restaurants lat={this.state.lat} lng={this.state.lng} />}  />
-                <Route path='/mosques' component={() => <Masjids lat={this.state.lat} lng={this.state.lng} />} />
+                <Route path='/restaurants' component={() => <Restaurants coords={[this.state.lat, this.state.lng]}getCoords={this.getCoords}/>}  />
+                <Route path='/mosques' component={() => <Masjids coords={[this.state.lat, this.state.lng]} getCoords={this.getCoords}/>} />
                 <Route path='/prayerinfo' component={Salah} />
                 <Route path="/about" component={About} />
                 <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} 
