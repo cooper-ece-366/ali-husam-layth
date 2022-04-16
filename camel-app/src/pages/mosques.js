@@ -86,12 +86,13 @@ class Masjids extends React.Component {
                 {this.state.items.results && this.state.items.results.map(place => 
                     <li key={place.place_id}>
                       <div className="flex-container">
-                          <img 
+                          <img
+                              className="flex-items"  
                               src={process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=" + place.photos[0].photo_reference}
                               alt="Image"
                           />
-                        <div>{place.name}</div>
-                        <div>{place.vicinity}</div>       
+                        <div className="flex-items" >{place.name}</div>
+                        <div className="flex-items" >{place.vicinity}</div>       
                       </div>
                     </li>
                 )}

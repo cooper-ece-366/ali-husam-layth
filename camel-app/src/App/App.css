@@ -23,3 +23,10 @@
   justify-content: left space-around;
   padding: 1em;
 }
+
+.flex-items{
+  margin: 15px;
+  text-align: center;
+  font-size: 25px;
+  line-height: 1.5;
+}
