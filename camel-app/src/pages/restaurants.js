@@ -3,6 +3,7 @@ import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls';
 import { onSubmit } from "../utils/apiCalls";
+import ReactLoading from "react-loading";
 
 const google = window.google;
 
@@ -12,6 +13,7 @@ class Restaurants extends React.Component {
       this.state = {
         items: [],
         city: "",
+        done: 0
       };
       this.newCity = this.newCity.bind(this);
       this.getCoords = this.getCoords.bind(this);
@@ -19,13 +21,15 @@ class Restaurants extends React.Component {
   url = BASE_URL + "/api/restaurants";
   
   getCoords() {
+    this.setState({items: []});
     this.props.getCoords(this.state.city).then( param => {
       let lat = param.results[0].geometry.location.lat();
       let lng = param.results[0].geometry.location.lng();
       // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
       fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
         this.setState({
-          items: response
+          items: response,
+          done: 1
         })
       });
     })
@@ -63,24 +67,34 @@ class Restaurants extends React.Component {
               Submit
             </button>
           </form>
-          <table className="table table-striped table-bordered">
-              <thead>
-                  <tr>
-                      <th>Name</th>
-                      <th>Address</th>
-                      <th>Rating</th>
-                  </tr>
-              </thead>
-              <tbody>
-                  {this.state.items.results && this.state.items.results.map(place =>
-                      <tr key={place.place_id}>
-                          <td>{place.name}</td>
-                          <td>{place.vicinity}</td>
-                          <td>{place.rating}</td>
-                      </tr>
-                  )}
-              </tbody>
-          </table>
+          {(!this.state.items.length && Array.isArray(this.state.items)) || this.state.items.status === "INVALID_REQUEST" ? (
+                <ReactLoading
+                    className="loading"
+                    type={"spin"}
+                    color={"#92400e"}
+                    height={100}
+                    width={100}
+                />
+            ) : (
+                <table className="table table-striped table-bordered">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Address</th>
+                        <th>Rating</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {this.state.items.results && this.state.items.results.map(place =>
+                        <tr key={place.place_id}>
+                            <td>{place.name}</td>
+                            <td>{place.vicinity}</td>
+                            <td>{place.rating}</td>
+                        </tr>
+                    )}
+                </tbody>
+                </table>
+            )}
         </div>
       );
     };

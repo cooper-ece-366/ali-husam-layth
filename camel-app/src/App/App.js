@@ -93,6 +93,7 @@ class App extends Component {
           console.log(lat,lng)
         } else {
           alert("Please enter a valid area");
+          return "ERROR"
         }
       })
     }
@@ -127,15 +128,15 @@ class App extends Component {
     this.loadCurrentlyLoggedInUser();
     //Add page to reload once login is complete
 
-  const success = position => {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log(latitude, longitude);
-    this.setState({
-      lat: latitude,
-      lng: longitude
-    });
-  };
+    const success = position => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log(latitude, longitude);
+      this.setState({
+        lat: latitude,
+        lng: longitude
+      });
+    };
 
     //Geolocation services
       if (navigator.geolocation) {
@@ -149,6 +150,7 @@ class App extends Component {
         if (this.state.loading) {
             return <LoadingIndicator />;
         }
+        let coords = [this.state.lat, this.state.lng]
         return (
           <div className="app">
             <div className="app-top-box">
@@ -157,8 +159,8 @@ class App extends Component {
             <div className="app-body">
               <Switch>
                 <Route exact path="/" component={Home}></Route>
-                <Route path='/restaurants' component={() => <Restaurants coords={[this.state.lat, this.state.lng]}getCoords={this.getCoords}/>}  />
-                <Route path='/mosques' component={() => <Masjids coords={[this.state.lat, this.state.lng]} getCoords={this.getCoords}/>} />
+                <Route path='/restaurants' component={() => <Restaurants coords={coords} getCoords={this.getCoords}/>}  />
+                <Route path='/mosques' component={() => <Masjids coords={coords} getCoords={this.getCoords}/>} />
                 <Route path='/prayerinfo' component={Salah} />
                 <Route path="/about" component={About} />
                 <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} 
