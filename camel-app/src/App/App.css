@@ -9,11 +9,17 @@
 .app{
   background-color: #111111;
   height: calc(100vh);
-  color: #92400e; 
+  color: white; 
   overflow: scroll; 
 }
 
 .loading{
   margin-top: 100px;
+}
 
+.flex-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left space-around;
+  padding: 1em;
 }

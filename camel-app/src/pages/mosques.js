@@ -32,6 +32,7 @@ class Masjids extends React.Component {
           let lng = param.results[0].geometry.location.lng();
           // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
           fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
+            response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
             this.setState({
               items: response, 
               done: true
@@ -48,6 +49,7 @@ class Masjids extends React.Component {
         var lng = this.props.coords[1]
         // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
         fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
+          response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
           this.setState({
               items: response
           })
@@ -80,26 +82,21 @@ class Masjids extends React.Component {
                     width={100}
                 />
             ) : (
-                <table className="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.items.results && this.state.items.results.map(place =>
-                        <tr key={place.place_id}>
-                            <td>{place.name}</td>
-                            <td>{place.vicinity}</td>
-                            <td>{place.rating}</td>
-                        </tr>
-                    )}
-                </tbody>
-                </table>
+                <ol>
+                {this.state.items.results && this.state.items.results.map(place => 
+                    <li key={place.place_id}>
+                      <div className="flex-container">
+                          <img 
+                              src={process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=" + place.photos[0].photo_reference}
+                              alt="Image"
+                          />
+                        <div>{place.name}</div>
+                        <div>{place.vicinity}</div>       
+                      </div>
+                    </li>
+                )}
+              </ol>
             )}
-            
             </div>
         );
     };

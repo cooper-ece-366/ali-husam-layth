@@ -13,7 +13,6 @@ class Restaurants extends React.Component {
       this.state = {
         items: [],
         city: "",
-        done: 0
       };
       this.newCity = this.newCity.bind(this);
       this.getCoords = this.getCoords.bind(this);
@@ -27,9 +26,9 @@ class Restaurants extends React.Component {
       let lng = param.results[0].geometry.location.lng();
       // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
       fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
+        response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
         this.setState({
-          items: response,
-          done: 1
+          items: response
         })
       });
     })
@@ -44,21 +43,26 @@ class Restaurants extends React.Component {
     var lat = this.props.coords[0]
     var lng = this.props.coords[1]
     fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
+      response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
+      console.log(response.results)
       this.setState({
         items: response
       })
     });
     }
-
+  
+  //TODO: Get place url by making google place api call (additional to nearby search, consider modifying server and client calls)
   render(){
       var city = "";
       if (this.state.city){
         city = this.state.city
       }
+      // console.log(this.state.items)
+      // console.log(process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=")
       return (
         <div className="App-header">
           <h1>
-            Restaurants Nearby 
+            Restaurants 
           </h1>
           <h3> Showing Results Nearby {city}</h3>
           <form onSubmit={onSubmit}>
@@ -76,24 +80,20 @@ class Restaurants extends React.Component {
                     width={100}
                 />
             ) : (
-                <table className="table table-striped table-bordered">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Address</th>
-                        <th>Rating</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {this.state.items.results && this.state.items.results.map(place =>
-                        <tr key={place.place_id}>
-                            <td>{place.name}</td>
-                            <td>{place.vicinity}</td>
-                            <td>{place.rating}</td>
-                        </tr>
-                    )}
-                </tbody>
-                </table>
+                <ol>
+                  {this.state.items.results && this.state.items.results.map(place => 
+                      <li key={place.place_id}>
+                        <div className="flex-container">
+                            <img 
+                                src={process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=" + place.photos[0].photo_reference}
+                                alt="Image"
+                            />
+                          <div>{place.name}</div>
+                          <div>{place.vicinity}</div>       
+                        </div>
+                      </li>
+                  )}
+                </ol>
             )}
         </div>
       );
