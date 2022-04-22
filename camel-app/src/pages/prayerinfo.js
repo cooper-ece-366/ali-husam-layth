@@ -4,6 +4,7 @@ import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls';
 import ReactLoading from "react-loading";
+import { Map, GoogleApiWrapper } from 'google-maps-react';
 
 class Salah extends React.Component {
   constructor() {
@@ -31,8 +32,11 @@ class Salah extends React.Component {
 
   render(){
     let myData = this.state.items.results || {};
+    const kaabaN = 21.4225;
+    const kaabaE = 39.8262;
     return (
-      <div className="App-header">
+    <React.Fragment>
+        <div>
         <h1>
           Salah and Prayer Information
         </h1>
@@ -80,9 +84,27 @@ class Salah extends React.Component {
             </tbody>
         </table>
         )}
-      </div>
+        </div>
+        <div>
+        <Map
+          google={this.props.google}
+          zoom={8}
+          style={mapStyles}
+          initialCenter={{ lat: kaabaN, lng: kaabaE }}
+        />
+        </div>
+        </React.Fragment>
     );
   }
 };
 
-export default Salah;
+const mapStyles = {
+
+  width: '100%',
+  height: '50%',
+};
+
+export default GoogleApiWrapper({
+  apiKey: 'API-KEY'
+})(Salah);
+
