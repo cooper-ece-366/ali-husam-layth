@@ -1,125 +1,137 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap');*,
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap");
 
+*,
 *:before,
 *:after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .about-header {
-    color: #92400e;
-    text-align: center;
-    opacity: 70%;
+  /* color: #92400e;
+  text-align: center;
+  opacity: 70%; */
+  color: #fef3c7;
+	font-family:'Quicksand';
+	font-size: 45px; 
+	background: rgb(23, 23, 23); 
+	padding: 15px; 
+	width: 100%; 
+	text-align: center;
+	margin-top: 15px; 
+	border: 1px solid #7c2d12;
+	border-right: none; 
+	border-left: none; 
+	margin-bottom: 20px; 
 }
 
 .about-main-container {
-    height: calc(100vh - 160px) ;
-    display: flex;
-    justify-content: center;
-    align-items: flex-start;
-    gap: 70px;
+  height: calc(100vh - 160px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 70px;
 }
 
 .about-mini-container {
-    border: 3px solid #4e230a;
-    border-radius: 8px;
-    margin-top: 30px;
-    width: 400px;
-    height: 500px;
-    display: flex;
-    flex-direction: column;
+  border: 3px solid #4e230a;
+  border-radius: 8px;
+  margin-top: 30px;
+  width: 400px;
+  height: 500px;
+  display: flex;
+  flex-direction: column;
 }
 
 .about-image {
-    height: 75%;
+  height: 75%;
 }
 .about-text {
-	font-family: Quicksand; 
-    color: #92400e;
-	font-weight: 500; 
-	display: flex;
-	height: 25%; 
-	margin: 0; 
-	padding: 0px 10px; 
-	align-items: center;
-	font-size: 23px; 
-	justify-content: center;
-	text-align: center;
+  font-family: Quicksand;
+  color: #92400e;
+  font-weight: 500;
+  display: flex;
+  height: 25%;
+  margin: 0;
+  padding: 0px 10px;
+  align-items: center;
+  font-size: 23px;
+  justify-content: center;
+  text-align: center;
 }
 .camel1,
 .camel2,
 .camel3 {
-    border-radius: 4px 4px 0px 0px;
-    -moz-border-radius: 4px 4px 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+  -moz-border-radius: 4px 4px 0px 0px;
 }
 .camel1 {
-    background: no-repeat center url(../img/camel1.png);
-    background-size: cover;
+  background: no-repeat center url(../img/camel1.png);
+  background-size: cover;
 }
 .camel2 {
-    background: no-repeat center url(../img/camel2.png);
-    background-size: cover;
+  background: no-repeat center url(../img/camel2.png);
+  background-size: cover;
 }
 .camel3 {
-    background: no-repeat center url(../img/camel3.png);
-    background-size: cover;
+  background: no-repeat center url(../img/camel3.png);
+  background-size: cover;
 }
 
 .why-camel {
-	background: no-repeat center url(../img/why-camel-background.jpeg);
-    background-size: cover;
-	height: calc(100vh - 70px); 
-	padding-left: 50px; 
-	margin-bottom: -22px; 
+  background: no-repeat center url(../img/why-camel-background.jpeg);
+  background-size: cover;
+  height: calc(100vh - 70px);
+  padding-left: 50px;
+  margin-bottom: -22px;
 }
 .why-camel-header {
-	color: #78350f;
-	border-bottom: 1px solid brown; 
-	width: fit-content; 
-	margin-left: 30px; 
+  color: #78350f;
+  border-bottom: 1px solid brown;
+  width: fit-content;
+  margin-left: 30px;
 }
 .why-camel-text {
-	color: #78350f;
-	font-size: 25px; 
-	width: 1200px; 
-	margin-left: 50px; 
+  color: #78350f;
+  font-size: 25px;
+  width: 1200px;
+  margin-left: 50px;
 }
 
 .fun-facts {
-	color: #fef3c7;
-	background: rgb(22, 22, 22); 
-	height: calc(100vh - 74px); 
-	padding-left: 50px; 
-
+  color: #fef3c7;
+  background: rgb(22, 22, 22);
+  height: calc(100vh - 74px);
+  padding-left: 50px;
 }
 .fun-facts h1 {
-	padding-top: 30px; 
-	margin-left: 30px; 
-	border-bottom: 1px solid brown; 
-	width: fit-content; 
+  padding-top: 30px;
+  margin-left: 30px;
+  border-bottom: 1px solid brown;
+  width: fit-content;
 }
 
 .fun-facts-list > li {
-	margin-left: 30px; 
-	text-align: left; 
-	font-size: 25px; 
-	max-width: 50vw; 
-	min-width: 700px;  
-	line-height: 50px; 
-	font-family: Quicksand; 
-	padding-block: 10px; 
+  margin-left: 30px;
+  text-align: left;
+  font-size: 25px;
+  max-width: 50vw;
+  min-width: 700px;
+  line-height: 50px;
+  font-family: Quicksand;
+  padding-block: 10px;
 }
 
 .fun-facts-list > li::marker {
-	font-size: 1.9rem; 
-	color: #d97706; 
+  font-size: 1.9rem;
+  color: #d97706;
 }
 
 .list-camel {
-	width: 500px; 
-	height: 500px; 
-	margin-right: 50px; 
+  width: 500px;
+  height: 500px;
+  margin-right: 50px;
 }
 .fun-facts-image-container {
-	display: flex; 
-	justify-content: space-between;
+  display: flex;
+  justify-content: space-between;
 }
