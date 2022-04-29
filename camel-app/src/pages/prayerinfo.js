@@ -4,7 +4,7 @@ import "../App/App.css"
 import { BASE_URL } from '../constants';
 import {fetchGoogle} from '../utils/apiCalls';
 import ReactLoading from "react-loading";
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import { Map, GoogleApiWrapper, Polyline, Marker } from 'google-maps-react';
 
 class Salah extends React.Component {
   constructor() {
@@ -32,8 +32,15 @@ class Salah extends React.Component {
 
   render(){
     let myData = this.state.items.results || {};
-    const kaabaN = 21.4225;
-    const kaabaE = 39.8262;
+    var lat = this.props.coords[0];
+    var lng = this.props.coords[1];
+    const kaabaN = 21.4224779;
+    const kaabaE = 39.8251832;
+    const direction = 58.50816668110658; // TODO: use api to get this instead
+    const pathCoordinates = [
+        {lat: lat, lng: lng},
+        {lat: kaabaN, lng: kaabaE}
+    ];
     return (
     <React.Fragment>
         <div>
@@ -42,12 +49,12 @@ class Salah extends React.Component {
         </h1>
         {(!this.state.items.length && Array.isArray(this.state.items)) || this.state.items.status === "INVALID_REQUEST" ? (
           <ReactLoading
-                    className="loading"
-                    type={"spin"}
-                    color={"#92400e"}
-                    height={100}
-                    width={100}
-                />
+            className="loading"
+            type={"spin"}
+            color={"#92400e"}
+            height={100}
+            width={100}
+          />
             ) : (
             <table className="table table-striped table-bordered">
             <thead>
@@ -90,8 +97,19 @@ class Salah extends React.Component {
           google={this.props.google}
           zoom={8}
           style={mapStyles}
-          initialCenter={{ lat: kaabaN, lng: kaabaE }}
-        />
+          initialCenter={{ lat: lat, lng: lng }}
+        >
+          <Marker position={{lat: lat, lng: lng}} />
+          <Marker position={{lat: kaabaN, lng: kaabaE}} />
+        <Polyline
+        path={pathCoordinates}
+        options={{
+          geodesic: true,
+          strokeColor: '#669DF6',
+          strokeOpacity: 1.0,
+          strokeWeight: 2,
+        }}/>
+        </Map>
         </div>
         </React.Fragment>
     );
@@ -99,12 +117,11 @@ class Salah extends React.Component {
 };
 
 const mapStyles = {
-
   width: '100%',
   height: '50%',
 };
 
 export default GoogleApiWrapper({
-  apiKey: 'API-KEY'
+  apiKey: 'API KEY'
 })(Salah);
 
