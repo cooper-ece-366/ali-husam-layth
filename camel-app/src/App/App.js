@@ -161,7 +161,7 @@ class App extends Component {
                 <Route exact path="/" component={Home}></Route>
                 <Route path='/restaurants' component={() => <Restaurants coords={coords} getCoords={this.getCoords}/>}  />
                 <Route path='/mosques' component={() => <Masjids coords={coords} getCoords={this.getCoords}/>} />
-                <Route path='/prayerinfo' component={Salah} />
+                <Route path='/prayerinfo' component={() => <Salah coords={coords} />} />
                 <Route path="/about" component={About} />
                 <PrivateRoute path="/profile" authenticated={this.state.authenticated} currentUser={this.state.currentUser} 
                   component={Profile}></PrivateRoute>
