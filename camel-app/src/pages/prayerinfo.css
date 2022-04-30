@@ -1,0 +1,145 @@
+@import url("https://fonts.googleapis.com/css2?family=Aref+Ruqaa&display=swap");
+*,
+*:before,
+*:after {
+  border-style: border-box;
+}
+
+.prayer-container {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 100px;
+}
+
+.map-container {
+  height: fit-content;
+  width: fit-content;
+}
+
+.map {
+  position: relative !important;
+}
+
+.prayer-info {
+  height: 100vh;
+  margin-bottom: 64px;
+}
+.prayer-item {
+  width: 550px;
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border: 1px solid white;
+  margin: 20px 0px;
+  padding: 0px 20px;
+  border-radius: 10px;
+	border-color: #92400e;
+	border-color: #78350f;
+}
+
+.prayer-name,
+.time {
+  font-family: "Aref Ruqaa", serif;
+  font-size: 30px;
+  font-weight: 300;
+}
+
+.sunrise {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 80px;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 50px;
+}
+
+.sun-icon {
+  height: 25px;
+  width: 25px;
+  color: gold;
+}
+
+.pulse {
+  border-radius: 50%;
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  animation: pulse 2s linear infinite both;
+  position: relative;
+}
+
+.pulse::before {
+  content: "";
+  box-shadow: 0 0 0 rgba(204, 169, 44, 0.4);
+  animation: pulse2 2s linear 1s infinite both;
+  border-radius: 50%;
+  border-radius: 50%;
+  display: block;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.pulse:hover {
+  animation: none;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 40px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
+@-webkit-keyframes pulse2 {
+  0% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -webkit-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -webkit-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
+@keyframes pulse2 {
+  0% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0.4);
+  }
+  70% {
+    -moz-box-shadow: 0 0 0 10px rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 60px rgba(204, 169, 44, 0);
+  }
+  100% {
+    -moz-box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+    box-shadow: 0 0 0 0 rgba(204, 169, 44, 0);
+  }
+}
+
