@@ -128,7 +128,7 @@ class App extends Component {
       //Default to NYC coordinates
       this.setState({
         lat: 40.7128,
-        lng: 74.0060
+        lng: -74.0060
       });
     }
 
