@@ -15,7 +15,8 @@ const Item = (props) => {
                   "&photoreference=" +
                   props.photo_reference
                 }
-                alt="Image"
+                alt=""
+                onerror="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"
               />
             </a>
           </div>

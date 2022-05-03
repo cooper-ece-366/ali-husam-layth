@@ -24,7 +24,7 @@ public class restaurantController {
     @CrossOrigin
     @GetMapping(path = "/api/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getRestaurants(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
-        final mapsApi test = new mapsApi("halal+kosher", this.google_api, "restaurant", lat, lng, this.url);
+        final mapsApi test = new mapsApi("(halal) OR (kosher)", this.google_api, "restaurant", lat, lng, this.url);
 
         if(nextPage != null){
             LOGGER.info("Returning next 20 results...");
