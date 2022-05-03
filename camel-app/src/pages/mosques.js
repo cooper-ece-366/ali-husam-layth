@@ -8,6 +8,9 @@ import { fetchGoogle } from "../utils/apiCalls";
 import ReactLoading from "react-loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/slide.css";
+import Alert from "react-s-alert";
 
 class Masjids extends React.Component {
   constructor() {
@@ -19,6 +22,7 @@ class Masjids extends React.Component {
     };
     this.newCity = this.newCity.bind(this);
     this.getCoords = this.getCoords.bind(this);
+    this.nextPage = this.nextPage.bind(this);
   }
 
   url = BASE_URL + "/api/mosques";
@@ -29,6 +33,10 @@ class Masjids extends React.Component {
   }
 
   getCoords() {
+    if(this.state.city === ""){
+      Alert.error("Invalid Area...");
+      return
+    }
     this.setState({ items: [] });
     this.props
       .getCoords(this.state.city)
@@ -67,6 +75,28 @@ class Masjids extends React.Component {
     });
   }
 
+  nextPage(){
+    console.log(this.state.items)
+    if(this.state.items.status === "INVALID_REQUEST"){
+      Alert.error("Error");
+      return
+    }
+    if(this.state.items.next_page_token === undefined){
+      Alert.error("No results");
+      return
+    }
+    this.setState({ items: [] });
+    fetchGoogle(this.url + "?lat=1" + "&lng=1" + "&nextPage=" + this.state.items.next_page_token).then((response) => {
+    response.results
+      .filter((place) => place.photos === undefined)
+      .forEach((place) => (place.photos = [1]));
+    console.log(response.results);
+    this.setState({
+      items: response,
+      });
+    });
+  }
+
   render() {
     var city = "";
     if (this.state.city) {
@@ -92,6 +122,10 @@ class Masjids extends React.Component {
             value={this.state.city}
           ></input>
         </form>
+        <div className="button-container">
+          <button className="next-button" onClick={()=>{window.location.reload();}}>Reset</button>
+          <button className="next-button" onClick={this.nextPage}>See Next...</button>
+        </div>
 
         {(!this.state.items.length && Array.isArray(this.state.items)) ||
         this.state.items.status === "INVALID_REQUEST" ? (
@@ -116,6 +150,9 @@ class Masjids extends React.Component {
               ))}
           </ul>
         )}
+        <Alert stack={{limit: 3}} 
+              timeout = {3000}
+              position='top-right' effect='slide' offset={65} /> 
       </div>
     );
   }

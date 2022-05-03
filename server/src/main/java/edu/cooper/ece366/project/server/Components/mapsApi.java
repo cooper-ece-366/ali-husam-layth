@@ -41,5 +41,13 @@ public class mapsApi {
 
         return doc;
     }
+
+    public String getNext(String nextPage) throws IOException{
+        this.url = this.url + this.keyword + "&key=" + this.google_api + "&pagetoken=" + nextPage;
+        String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
+        System.out.println("Connected to Google Maps API - returning results...");
+
+        return doc;
+    }
 }
 

@@ -10,6 +10,21 @@
   width: 7px;
 }
 
+.button-container{
+  display: flex; 
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  margin-top: 10px;
+  /* background-color: transparent; */
+}
+
+.next-button{
+  color: #fef3c7;
+  background: transparent;
+  cursor: pointer;
+}
+
 .s-alert-close::before,
 .s-alert-close::after {
   width: 2px;

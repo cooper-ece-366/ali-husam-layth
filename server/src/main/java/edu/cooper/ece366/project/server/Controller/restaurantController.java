@@ -23,9 +23,16 @@ public class restaurantController {
 
     @CrossOrigin
     @GetMapping(path = "/api/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getRestaurants(@RequestParam String lat, @RequestParam String lng) throws IOException {
-        final mapsApi test = new mapsApi("halal", this.google_api, "restaurant", lat, lng, this.url);
-        LOGGER.info("Connected to Google Places API");
-        return test.getItems();
+    public String getRestaurants(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
+        final mapsApi test = new mapsApi("halal+kosher", this.google_api, "restaurant", lat, lng, this.url);
+
+        if(nextPage != null){
+            LOGGER.info("Returning next 20 results...");
+            return test.getNext(nextPage);
+        }
+        else{
+            LOGGER.info("Connected to Google Places API");
+            return test.getItems();
+        }
     }
 }

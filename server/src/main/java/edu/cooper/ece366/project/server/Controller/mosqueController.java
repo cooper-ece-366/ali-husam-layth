@@ -23,9 +23,17 @@ public class mosqueController {
 
     @CrossOrigin
     @GetMapping(path = "/api/mosques", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getMosques(@RequestParam String lat, @RequestParam String lng) throws IOException {
+    public String getMosques(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
         final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url);
         LOGGER.info("Connected to Google Places API");
-        return test.getItems();
+
+        if(nextPage != null){
+            LOGGER.info("Returning next 20 results...");
+            return test.getNext(nextPage);
+        }
+        else{
+            LOGGER.info("Connected to Google Places API");
+            return test.getItems();
+        }
     }
 }
