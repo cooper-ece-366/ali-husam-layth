@@ -26,6 +26,7 @@ public class restaurantController {
     public String getRestaurants(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
         final mapsApi test = new mapsApi("(halal) OR (kosher)", this.google_api, "restaurant", lat, lng, this.url);
 
+        System.out.println(nextPage);
         if(nextPage != null){
             LOGGER.info("Returning next 20 results...");
             return test.getNext(nextPage);

@@ -26,7 +26,7 @@ public class mosqueController {
     public String getMosques(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
         final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url);
         LOGGER.info("Connected to Google Places API");
-
+        
         if(nextPage != null){
             LOGGER.info("Returning next 20 results...");
             return test.getNext(nextPage);

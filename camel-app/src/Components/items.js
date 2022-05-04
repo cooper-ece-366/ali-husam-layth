@@ -1,9 +1,10 @@
 import React from "react";
+import listCamel from "../img/list-camel.png";
 
 const Item = (props) => {
   return (
     <>
-      <li key={props.key}>
+      <li key={props.itemkey}>
         <div className="item-flex-container">
           <div>
             <a href="#">
@@ -16,8 +17,7 @@ const Item = (props) => {
                   props.photo_reference
                 }
                 alt=""
-                onerror="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"
-              />
+                />
             </a>
           </div>
           <div className="item-flex-info">
@@ -33,4 +33,5 @@ const Item = (props) => {
   );
 };
 
+// onerror="this.src='https://www.unesale.com/ProductImages/Large/notfound.png'"
 export default Item;
