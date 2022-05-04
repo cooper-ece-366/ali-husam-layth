@@ -10,6 +10,7 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 import "../pages/items.css";
 
+
 const Display = (props) => {
   return (
     <>
@@ -45,14 +46,16 @@ const Display = (props) => {
             <ul className="item-container">
               {props.items.results &&
                 props.items.results.map((place) => (
+                  console.log(place),
                   <Item
                     key={place.place_id}
                     place_name={place.name}
                     photo_reference={place.photos[0].photo_reference}
                     vicinity={place.vicinity}
                     rating={place.rating}
+                    website={place.website}
                   />
-                ))}
+                  ))}
             </ul>
             <Alert stack={{limit: 3}} 
               timeout = {3000}

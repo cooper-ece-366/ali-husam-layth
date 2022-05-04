@@ -7,7 +7,7 @@ const Item = (props) => {
       <li key={props.itemkey}>
         <div className="item-flex-container">
           <div>
-            <a href="#">
+            <a href={props.website}>
               <img
                 className="imgfit picture"
                 src={
@@ -19,6 +19,7 @@ const Item = (props) => {
                 alt=""
                 />
             </a>
+            <p><a href="url">{props.website}</a></p>
           </div>
           <div className="item-flex-info">
             <div className="name-rating-container">
