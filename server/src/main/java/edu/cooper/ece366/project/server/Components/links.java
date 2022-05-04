@@ -19,11 +19,21 @@ public class links {
     public String getItems() throws IOException {
         //System.out.println("Google Api: " + this.google_api);
         this.url = this.url + this.google_api + "&place_id=" + this.placeId + "&fields=website";
-        System.out.println(this.url);
+        // System.out.println(this.url);
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
-        System.out.println("Connected to Google Maps API - returning results...");
+        JSONObject jo = new JSONObject(doc);
+        System.out.println("Connected to Place Details API - returning results");
+        // System.out.println(jo);
 
-        return doc;
+        String site; 
+        try{
+            site = jo.getJSONObject("result").getString("website");
+        }
+        catch(Exception e){
+            site = "undefined";
+        }
+        // System.out.println(site); 
+        return site;
     }
     
 }

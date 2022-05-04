@@ -116,15 +116,6 @@ class Template extends React.Component {
     // console.log(this.state.city)
   }
 
-  getLinks(place){
-    let url = BASE_URL + "/api/links" + "?placeId=" + place.place_id
-    return fetchGoogle(url)
-    .then((response) => {
-        // console.log(response.result.website)
-        return response.result.website
-    })
-  }
-  
   componentDidMount() {
     var lat = this.props.coords[0];
     var lng = this.props.coords[1];
@@ -134,13 +125,11 @@ class Template extends React.Component {
       response.results
         .filter((place) => place.photos === undefined)
         .forEach((place) => (place.photos = [1]));
-      response.results.forEach((place) => {this.getLinks(place)})
       this.setState({
         items: response,
         stack: [response],
         resp: response.next_page_token
       });
-    //   response.results.map(place => ({...place, website: this.getLinks(place).then(resp => console.log(resp))}))
     });
     
   }

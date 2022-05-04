@@ -18,7 +18,7 @@ class Restaurants extends Template {
       city = this.state.city;
     }
     
-    console.log(this.state.items);
+    // console.log(this.state.items);
     return (
       <div className="App-header">
         {(city ? (<h3 className="locations-header-h3"> Showing Results Near {city}</h3>) : (<h3 className="locations-header-h3"> Showing Results Nearby</h3>))}

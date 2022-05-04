@@ -21,12 +21,17 @@ public class mosqueController {
     @Value("${google.url}")
     private String url; 
 
+    @Value("${google.details}")
+    private String details;
+
     @CrossOrigin
     @GetMapping(path = "/api/mosques", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getMosques(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
-        final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url);
+        final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url, this.details);
         LOGGER.info("Connected to Google Places API");
         
+        System.out.println(lat + lng + nextPage);
+
         if(nextPage != null){
             LOGGER.info("Returning next 20 results...");
             return test.getNext(nextPage);

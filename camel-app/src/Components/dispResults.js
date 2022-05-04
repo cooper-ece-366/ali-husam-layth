@@ -46,7 +46,6 @@ const Display = (props) => {
             <ul className="item-container">
               {props.items.results &&
                 props.items.results.map((place) => (
-                  console.log(place),
                   <Item
                     key={place.place_id}
                     place_name={place.name}
