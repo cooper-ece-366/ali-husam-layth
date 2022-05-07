@@ -38,9 +38,12 @@ public class mapsApi {
             String key = (keys.getJSONObject(i)).getString("place_id"); // Here's your key
             // System.out.println(key);
             links test = new links(key, this.details, this.google_api);
-            String link = test.getItems();
+            test.getItems();
+            String link = test.getSite();
+            JSONObject hours = test.getHours(); 
     
             keys.getJSONObject(i).put("website", link);
+            keys.getJSONObject(i).put("hours", hours);
             // System.out.println(keys.getJSONObject(i).getString("website"));
         }
         return keys;
@@ -69,7 +72,7 @@ public class mapsApi {
         JSONArray keys = jo.getJSONArray("results");
         JSONArray updated = this.getLinks(keys);
         jo.put("results", updated);
-        System.out.println("Collecitng  - returning results...");
+        System.out.println("Collecting  - returning results...");
         return jo.toString();
     }
 }

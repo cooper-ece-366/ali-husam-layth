@@ -17,6 +17,7 @@ class Restaurants extends Template {
     if (this.state.city) {
       city = this.state.city;
     }
+    console.log(this.state.items)
     
     // console.log(this.state.items);
     return (

@@ -53,6 +53,7 @@ const Display = (props) => {
                     vicinity={place.vicinity}
                     rating={place.rating}
                     website={place.website}
+                    hours={place.hours}
                   />
                   ))}
             </ul>

@@ -1,7 +1,14 @@
-import React from "react";
-import listCamel from "../img/list-camel.png";
+import React, {useState} from "react";
+import Popup from "./popup";
+
 
 const Item = (props) => {
+  const [isOpen, setIsOpen] = useState(false);
+ 
+  const togglePopup = () => {
+    setIsOpen(!isOpen);
+  }
+
   return (
     <>
       <li key={props.itemkey}>
@@ -26,6 +33,20 @@ const Item = (props) => {
               <div className="item-flex-items rating">{props.rating}</div>
             </div>
             <div className="item-flex-items vicinity">{props.vicinity}</div>
+            <div className="button-flex-container">
+              {props.hours.open_now && <div className="item-flex-items vicinity button-flex open-now">Open Now</div>}
+              {!props.hours.open_now && <div className="item-flex-items vicinity button-flex closed-now">Closed</div>}
+              {!props.hours.Undefined && <input
+                className="next-button"
+                type="button"
+                value="Click to see hours"
+                onClick={togglePopup}
+              />}
+              {isOpen && <Popup
+                  content={props.hours.weekday_text}
+                  handleClose={togglePopup}
+                />}
+            </div>
           </div>
         </div>
       </li>
