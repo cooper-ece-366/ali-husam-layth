@@ -77,6 +77,10 @@ class Salah extends React.Component {
                 <div className="time">{myData.Asr}</div>
               </div>
               <div className="prayer-item isha">
+                <div className="prayer-name">Maghrib</div>
+                <div className="time">{myData.Maghrib}</div>
+              </div>
+              <div className="prayer-item isha">
                 <div className="prayer-name">Isha</div>
                 <div className="time">{myData.Isha}</div>
               </div>
@@ -85,7 +89,7 @@ class Salah extends React.Component {
           <Map
             className="map"
             google={this.props.google}
-            zoom={8}
+            zoom={20}
             style={mapStyles}
             initialCenter={{ lat: lat, lng: lng }}
           >
@@ -113,5 +117,5 @@ const mapStyles = {
 };
 
 export default GoogleApiWrapper({
-  apiKey: "AIzaSyDgJRYms334dF4NCHF8FcDx1b_iF_UEWUI",
+  apiKey: process.env.REACT_APP_API,
 })(Salah);

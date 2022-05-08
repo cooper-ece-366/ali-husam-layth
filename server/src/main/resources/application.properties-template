@@ -6,3 +6,4 @@ logging.level.org.springframework.boot.autoconfigure=INFO
 app.cors.allowedOrigins = http://localhost:3000
 google.api=APIKEY
 google.url=https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=
+google.details=https://maps.googleapis.com/maps/api/place/details/json?key=
