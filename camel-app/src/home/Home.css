@@ -39,17 +39,17 @@
 }
 
 .App-logo {
-    width: 300px;
+    width: 100px;
     height: 400x;
     pointer-events: none;
-    margin: 50px;
+    margin: 150px;
 }
 
-@media (prefers-reduced-motion: no-preference) {
+/* @media (prefers-reduced-motion: no-preference) {
     .App-logo {
         animation: App-logo-spin infinite 20s linear;
     }
-}
+} */
 
 @keyframes App-logo-spin {
     from {
@@ -333,4 +333,8 @@
             rotate(1turn);
         opacity: 0;
     }
+}
+
+.fade-in {
+    transition: opacity 1s ease;
 }
