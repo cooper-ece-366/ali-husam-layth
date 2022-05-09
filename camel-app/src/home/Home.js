@@ -14,8 +14,8 @@ class Home extends Component {
                     <FadeIn transitionDuration="2000" delay="1000">
                         <h1 className="camel-main"> Camel </h1>
                         <div className="App">
-                            <p className="desc fade-in" >Camel is your one stop application for islamic purposes</p>
-                            <p className="desc fade-in">Find halal food/masjids nearby, at a specified location, and even salah and qiblah information!</p>
+                            <p className="desc" >Camel is your one stop application for islamic purposes</p>
+                            <p className="desc">Find halal food/masjids nearby, at a specified location, and even salah and qiblah information!</p>
                             <img 
                                 src={logo} 
                                 className="App-logo" 
