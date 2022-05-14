@@ -14,7 +14,7 @@ public class messageController {
     @GetMapping(path = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
     public Message getMessage() {
 
-        final Message message = new Message();
+        final Message message = new Message("hello");
         message.setText("Testing");
         return message;
     }
