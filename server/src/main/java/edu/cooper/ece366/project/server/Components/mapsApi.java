@@ -7,7 +7,7 @@ import org.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-
+//Husam and Ali worked on this class
 @ConfigurationProperties(prefix = "google")
 public class mapsApi {
     // Get current location or given location

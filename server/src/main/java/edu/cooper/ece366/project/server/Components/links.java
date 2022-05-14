@@ -5,9 +5,10 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
+//Husam and Ali worked on this class
 public class links {
-    String placeId;
-    String url;    
+    public String placeId;
+    public String url;    
     String google_api; 
 
     String site;
@@ -42,6 +43,7 @@ public class links {
         catch(Exception e){
             hours = new JSONObject("{'Undefined': 'Undefined'}");
         }
+
         this.hours = hours;
         this.site = site; 
         // System.out.println(site); 
