@@ -5,7 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
-
+import org.springframework.security.access.prepost.PreAuthorize;
 import edu.cooper.ece366.project.server.Server;
 import edu.cooper.ece366.project.server.Components.mapsApi;
 
@@ -26,6 +26,7 @@ public class mosqueController {
 
     @CrossOrigin
     @GetMapping(path = "/api/mosques", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PreAuthorize("hasRole('USER')")
     public String getMosques(@RequestParam String lat, @RequestParam String lng, @RequestParam(required = false) String nextPage) throws IOException {
         final mapsApi test = new mapsApi("mosque", this.google_api, "mosque", lat, lng, this.url, this.details);
         LOGGER.info("Connected to Google Places API");

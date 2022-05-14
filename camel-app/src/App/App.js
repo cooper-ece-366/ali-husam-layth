@@ -20,6 +20,7 @@ import OAuth2RedirectHandler from "../user/oath/OAuth2RedirectHandler";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import { fetchGoogle } from "../utils/apiCalls";
+import { BASE } from "../constants";
 import "./App.css";
 
 const google = window.google;
@@ -47,7 +48,7 @@ class App extends Component {
       currentUser: null,
       loading: true,
       lat: "",
-      lng: ""
+      lng: "",
     }
         this.loadCurrentlyLoggedInUser =
         this.loadCurrentlyLoggedInUser.bind(this);
@@ -94,6 +95,7 @@ class App extends Component {
             currentUser: null,
         });
         Alert.success("You're safely logged out!");
+        window.location.href = BASE;
     }
 
   success(pos) {

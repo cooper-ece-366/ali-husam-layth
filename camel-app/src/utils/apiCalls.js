@@ -64,6 +64,10 @@ export function signup(signupRequest) {
 
 // Husam - Code for fetching google maps API from backend 
 export function fetchGoogle(url){
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+    
     return request({
         url: url,
         method: 'GET'
