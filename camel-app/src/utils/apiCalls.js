@@ -1,6 +1,6 @@
 import { API_BASE_URL, ACCESS_TOKEN, BASE_URL } from '../constants';
 
-// Borsa Social Login Code for API Calls 
+//Husam Almanakly - Code for any API Calls to the server
 const request = (options) => {
     const headers = new Headers({
         'Content-Type': 'application/json',
@@ -61,14 +61,55 @@ export function signup(signupRequest) {
     });
 }
 
-
-// Husam - Code for fetching google maps API from backend 
 export function fetchGoogle(url){
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
     return request({
         url: url,
         method: 'GET'
     });
 }
+
+export function saveItem(url, values){
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    console.log(JSON.stringify(values))
+
+    return request({
+        url: url,
+        method: 'POST',
+        body: JSON.stringify(values)
+    });
+}
+
+export function getFavorites(url){
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    return request({
+        url: url,
+        method: 'GET',
+    });
+}
+
+export function delFav(url, id){
+    if(!localStorage.getItem(ACCESS_TOKEN)) {
+        return Promise.reject("No access token set.");
+    }
+
+    url = url + "?id=" + id;
+
+    return request({
+        url: url,
+        method: 'GET',
+    });
+}
+
 
 export const onSubmit = (e) => {
     e.preventDefault();

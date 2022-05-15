@@ -21,16 +21,16 @@ class About extends React.Component {
                         <div className="about-mini-container">
                             <div className="about-image camel1"></div>
                             <p className="about-text">
-                                Guess my favorite date of the week. HUMP DAY - Layth Yassin
+                                Layth Yassin
                             </p>
                         </div>
                         <div className="about-mini-container">
                             <div className="about-image camel2"></div>
-                            <p className="about-text ">Just a goofy kinda guy 🤪 - Ali Ghuman</p>
+                            <p className="about-text ">Ali Ghuman</p>
                         </div>
                         <div className="about-mini-container">
                             <div className="about-image camel3"></div>
-                            <p className="about-text">I like water. - Husam Almanakly</p>
+                            <p className="about-text">Husam Almanakly</p>
                         </div>
                 </div>
 				<div className="why-camel">
