@@ -21,7 +21,7 @@ Camel solves this and brings the user an all you need application with all the n
 
 [Camel Project Board](https://github.com/cooper-ece-366/ali-husam-layth/projects/1)
 
-[Camel Demo](https://youtu.be/SoH39GUAsto)
+[Camel Demo](https://youtu.be/fRt0oaLVwwA)
 
 [Social Login System Used](https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo)
 
