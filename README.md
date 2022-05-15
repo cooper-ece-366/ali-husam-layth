@@ -17,20 +17,20 @@ Camel solves this and brings the user an all you need application with all the n
 
 ### Relevant Links
 
-[Camel Wiki][https://github.com/cooper-ece-366/ali-husam-layth/wiki/Camel]
+[Camel Wiki](https://github.com/cooper-ece-366/ali-husam-layth/wiki/Camel)
 
-[Camel Project Board][https://github.com/cooper-ece-366/ali-husam-layth/projects/1]
+[Camel Project Board](https://github.com/cooper-ece-366/ali-husam-layth/projects/1)
 
-[Camel Demo][https://youtu.be/SoH39GUAsto]
+[Camel Demo](https://youtu.be/SoH39GUAsto)
 
-[Social Login System Used][https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo]
+[Social Login System Used](https://github.com/callicoder/spring-boot-react-oauth2-social-login-demo)
 
 
 ### Using Camel 
 
 1. Install npm and node to run the front end. Ensure mysql is also installed on your machine and that an instance is running on your machine
 2. Clone this repo 
-3. Update the configuration files with your information. In the server/src/main/resources directory, update the application.properties-template file to a Google API Key (in the google.api attribute). If you haven't been provided one you can make an account at [this link][https://developers.google.com/maps/documentation/places/web-service/get-api-key]
+3. Update the configuration files with your information. In the server/src/main/resources directory, update the application.properties-template file to a Google API Key (in the google.api attribute). If you haven't been provided one you can make an account at [this link](https://developers.google.com/maps/documentation/places/web-service/get-api-key)
 4. Also update the application.yml file in the same directory with your mysql password (underneath spring.datasource.password). The database will run on port 3306, which can also be altered here if needed
 5. On the front end side, change directories to camel-app/.env and update your API Key there in the REACT_APP_API field
 6. Once you've updated the configuration files, you run the application. Start the server using the bash files in the main directory. Run the command to run the server on port 8080
