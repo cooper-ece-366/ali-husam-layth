@@ -35,7 +35,7 @@ const Item = (props) => {
             <div className="item-flex-items vicinity">{props.vicinity}</div>
             <div className="button-flex-container">
               {props.hours.open_now && <div className="item-flex-items vicinity button-flex open-now">Open Now</div>}
-              {!props.hours.open_now && <div className="item-flex-items vicinity button-flex closed-now">Closed</div>}
+              {!props.hours.open_now && !props.hours.Undefined && <div className="item-flex-items vicinity button-flex closed-now">Closed</div>}
               {!props.hours.Undefined && <input
                 className="next-button"
                 type="button"
