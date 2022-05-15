@@ -1,3 +1,5 @@
+// User jpa repository to interact with mysql database - code obtained from link (on wiki and github)
+
 package edu.cooper.ece366.project.server.repository;
 
 import edu.cooper.ece366.project.server.Components.User;

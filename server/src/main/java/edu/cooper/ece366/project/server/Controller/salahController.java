@@ -1,4 +1,5 @@
-// Author: Layth Yassin
+// Author: Layth Yassin - this page implements a spring boot controller for the prayer info
+// page. This interacts with the IslamicFinder api using the salahScraper.java class
 
 package edu.cooper.ece366.project.server.Controller;
 
@@ -9,6 +10,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.RestController;
 import edu.cooper.ece366.project.server.Server;
 import edu.cooper.ece366.project.server.Components.salahScraper;
@@ -21,9 +23,10 @@ public class salahController {
     @Value("${google.api}")
     private String google_api;
 
+    // call salahScraper to obtain prayer times
     @CrossOrigin
     @GetMapping(path = "/api/prayerinfo", produces = MediaType.APPLICATION_JSON_VALUE)
-    // call salahScraper to obtain prayer times
+    @PreAuthorize("hasRole('USER')")
     public String getSalah(@RequestParam String lat, @RequestParam String lng) throws IOException {
         final salahScraper test = new salahScraper(lat, lng, this.google_api);
         LOGGER.info("Connected to IslamicFinder API");

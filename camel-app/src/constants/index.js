@@ -1,4 +1,5 @@
 export const THE_APP_NAME = "Camel";
+export const BASE = 'http://localhost:3000'
 export const BASE_URL = 'http://localhost:8080';
 export const API_BASE_URL = BASE_URL; 
 export const ACCESS_TOKEN = 'accessToken';

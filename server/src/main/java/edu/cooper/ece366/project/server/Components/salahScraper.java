@@ -1,4 +1,5 @@
-// Author: Layth Yassin
+// Author: Layth Yassin - this class interacts with the IslamicFinder API to obtain information 
+// on salah times and qiblah direction
 
 package edu.cooper.ece366.project.server.Components;
 
@@ -57,6 +58,7 @@ public class salahScraper {
         return zipCode + " " + countryCode;
     }
 
+    // getter to return api results
     public String getItems() throws IOException {
         // convert coordinates to zip code and country code
         String tmp = coordsToAddr(this.lat, this.lng);

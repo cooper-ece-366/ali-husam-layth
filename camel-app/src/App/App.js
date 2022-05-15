@@ -20,6 +20,7 @@ import OAuth2RedirectHandler from "../user/oath/OAuth2RedirectHandler";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 import { fetchGoogle } from "../utils/apiCalls";
+import { BASE } from "../constants";
 import "./App.css";
 
 const google = window.google;
@@ -39,16 +40,6 @@ function message() {
 }
 message();
 
-var options = {
-  enableHighAccuracy: true,
-  timeout: 5000,
-  maximumAge: 0,
-};
-
-function errors(err) {
-  console.warn(`ERROR(${err.code}): ${err.message}`);
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -57,7 +48,7 @@ class App extends Component {
       currentUser: null,
       loading: true,
       lat: "",
-      lng: ""
+      lng: "",
     }
         this.loadCurrentlyLoggedInUser =
         this.loadCurrentlyLoggedInUser.bind(this);
@@ -92,7 +83,6 @@ class App extends Component {
           // alert("Latitude: " + lat + "\nLongitude: " + lng);
           console.log(lat,lng)
         } else {
-          alert("Please enter a valid area");
           return "ERROR"
         }
       })
@@ -105,6 +95,7 @@ class App extends Component {
             currentUser: null,
         });
         Alert.success("You're safely logged out!");
+        window.location.href = BASE;
     }
 
   success(pos) {
@@ -128,6 +119,21 @@ class App extends Component {
     this.loadCurrentlyLoggedInUser();
     //Add page to reload once login is complete
 
+    var options = {
+      enableHighAccuracy: true,
+      timeout: 5000,
+      maximumAge: 0,
+    };
+    
+    const errors = err => {
+      console.warn(`ERROR(${err.code}): ${err.message}`);
+      //Default to NYC coordinates
+      this.setState({
+        lat: 40.7128,
+        lng: -74.0060
+      });
+    }
+
     const success = position => {
       const latitude = position.coords.latitude;
       const longitude = position.coords.longitude;
@@ -139,11 +145,11 @@ class App extends Component {
     };
 
     //Geolocation services
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, errors, options);
-      } else {
-        alert("Sorry Not available!");
-      }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, errors, options);
+    } else {
+      alert("Sorry Not available!");
+    }
   }
 
     render() {

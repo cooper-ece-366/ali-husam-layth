@@ -16,19 +16,23 @@ class AppHeader extends Component {
                         </Link>
                     </div>
                     <div className="public">
-                        <nav className="app-nav">
-                            <ul>
-                                <li>
-                                    <NavLink to="/restaurants">Halal Nearby </NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/prayerinfo">Salah Times</NavLink>
-                                </li>
-                                <li>
-                                    <NavLink to="/mosques">Masjid Info</NavLink>
-                                </li>
-                            </ul>
-                        </nav>
+                        {this.props.authenticated ?(
+                            <nav className="app-nav">
+                                <ul>
+                                    <li>
+                                        <NavLink to="/restaurants">Halal Nearby </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/prayerinfo">Salah Times</NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink to="/mosques">Masjid Info</NavLink>
+                                    </li>
+                                </ul>
+                            </nav>
+                        ) : (
+                            <></>
+                        )}
                     </div>
                     <div className="app-options">
                         <nav className="app-nav">

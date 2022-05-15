@@ -1,105 +1,42 @@
-import React, {useState, useEffect} from "react";
-import "../App/App.css"
-import { BASE_URL } from '../constants';
-import {fetchGoogle} from '../utils/apiCalls';
-import { onSubmit } from "../utils/apiCalls";
-import ReactLoading from "react-loading";
+import React, { useState, useEffect } from "react";
+import "../App/App.css";
+import "./items.css";
+import { BASE_URL } from "../constants";
+import Template from "./template";
+import Display from "../Components/dispResults";
+import FadeIn from "react-fade-in/lib/FadeIn";
 
-const google = window.google;
-
-class Restaurants extends React.Component {
+class Restaurants extends Template {
   constructor() {
-      super();
-      this.state = {
-        items: [],
-        city: "",
-      };
-      this.newCity = this.newCity.bind(this);
-      this.getCoords = this.getCoords.bind(this);
+    super();
   }
   url = BASE_URL + "/api/restaurants";
-  
-  getCoords() {
-    this.setState({items: []});
-    this.props.getCoords(this.state.city).then( param => {
-      let lat = param.results[0].geometry.location.lat();
-      let lng = param.results[0].geometry.location.lng();
-      // console.log(this.url + "?lat=" + lat + "&lng=" + lng)
-      fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
-        response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
-        this.setState({
-          items: response
-        })
-      });
-    })
-  }
 
-  newCity(event){
-    this.setState({city: event.target.value});
-    // console.log(this.state.city)
-  }
-
-  componentDidMount() {
-    var lat = this.props.coords[0]
-    var lng = this.props.coords[1]
-    fetchGoogle(this.url + "?lat=" + lat + "&lng=" + lng).then(response => {
-      response.results.filter(place => place.photos === undefined).forEach(place => place.photos = [1])
-      console.log(response.results)
-      this.setState({
-        items: response
-      })
-    });
+  render() {
+    var city = "";
+    if (this.state.city) {
+      city = this.state.city;
     }
-  
-  //TODO: Get place url by making google place api call (additional to nearby search, consider modifying server and client calls)
-  render(){
-      var city = "";
-      if (this.state.city){
-        city = this.state.city
-      }
-      // console.log(this.state.items)
-      // console.log(process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=")
-      return (
+    console.log(this.state.items)
+    
+    // console.log(this.state.items);
+    return (
+      <FadeIn transitionDelay="1000" delay="500">
         <div className="App-header">
-          <h1>
-            Restaurants 
-          </h1>
-          <h3> Showing Results Nearby {city}</h3>
-          <form onSubmit={onSubmit}>
-            <input placeholder="Enter a City or ZIP" onChange={this.newCity} value={this.state.city}></input>
-            <button onClick={this.getCoords}>
-              Submit
-            </button>
-          </form>
-          {(!this.state.items.length && Array.isArray(this.state.items)) || this.state.items.status === "INVALID_REQUEST" ? (
-                <ReactLoading
-                    className="loading"
-                    type={"spin"}
-                    color={"#92400e"}
-                    height={100}
-                    width={100}
-                />
-            ) : (
-                <ol>
-                  {this.state.items.results && this.state.items.results.map(place => 
-                      <li key={place.place_id}>
-                        <div className="flex-container">
-                            <img 
-                                className="flex-items" 
-                                src={process.env.REACT_APP_PHOTOS + process.env.REACT_APP_API + "&photoreference=" + place.photos[0].photo_reference}
-                                alt="Image"
-                            />
-                          <div className="flex-items">{place.name}</div>
-                          <div className="flex-items">{place.vicinity}</div>       
-                          <div className="flex-items">{place.rating + "/5"}</div>
-                        </div>
-                      </li>
-                  )}
-                </ol>
-            )}
+        <h1 className="locations-header-h1">Restaurants</h1>
+          {(city ? (<h3 className="locations-header-h3"> Showing Results Near {city}</h3>) : (<h3 className="locations-header-h3"> Showing Results Nearby</h3>))}
+          <Display
+            getCoords={this.getCoords}
+            newCity={this.newCity}
+            city={this.state.city}
+            nextPage={this.nextPage}
+            prevPage={this.prevPage}
+            items={this.state.items} 
+          />
         </div>
-      );
-    };
+      </FadeIn>
+    );
   }
+}
 
 export default Restaurants;

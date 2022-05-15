@@ -1,3 +1,5 @@
+// Husam Almanakly - test file for API Endpoint testing 
+
 package edu.cooper.ece366.project.server.Controller;
 
 import org.springframework.http.MediaType;
@@ -14,7 +16,7 @@ public class messageController {
     @GetMapping(path = "/message", produces = MediaType.APPLICATION_JSON_VALUE)
     public Message getMessage() {
 
-        final Message message = new Message();
+        final Message message = new Message("hello");
         message.setText("Testing");
         return message;
     }

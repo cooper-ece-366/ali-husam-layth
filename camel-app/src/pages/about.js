@@ -2,6 +2,8 @@ import React from "react";
 import "../App/App.css";
 import "./about.css";
 import listCamel from "../img/list-camel.png";
+import FadeIn from "react-fade-in/lib/FadeIn";
+
 class About extends React.Component {
     constructor() {
         super();
@@ -13,22 +15,23 @@ class About extends React.Component {
     render() {
         return (
             <>
+                <FadeIn delay="1000" transitionDuration="1000">
                 <h1 className="about-header">About Us</h1>
                 <div className="about-main-container">
-                    <div className="about-mini-container">
-                        <div className="about-image camel1"></div>
-                        <p className="about-text">
-                            Guess my favorite date of the week. HUMP DAY
-                        </p>
-                    </div>
-                    <div className="about-mini-container">
-                        <div className="about-image camel2"></div>
-                        <p className="about-text ">Just a goofy kinda guy 🤪</p>
-                    </div>
-                    <div className="about-mini-container">
-                        <div className="about-image camel3"></div>
-                        <p className="about-text">I like water.</p>
-                    </div>
+                        <div className="about-mini-container">
+                            <div className="about-image camel1"></div>
+                            <p className="about-text">
+                                Layth Yassin
+                            </p>
+                        </div>
+                        <div className="about-mini-container">
+                            <div className="about-image camel2"></div>
+                            <p className="about-text ">Ali Ghuman</p>
+                        </div>
+                        <div className="about-mini-container">
+                            <div className="about-image camel3"></div>
+                            <p className="about-text">Husam Almanakly</p>
+                        </div>
                 </div>
 				<div className="why-camel">
 					<h1 className="why-camel-header">Why Camel?</h1>
@@ -63,6 +66,7 @@ class About extends React.Component {
                         <img className="list-camel" src={listCamel} />
                     </div>
                 </div>
+                </FadeIn>
             </>
         );
     }
