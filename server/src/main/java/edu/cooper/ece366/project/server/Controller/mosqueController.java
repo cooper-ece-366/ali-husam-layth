@@ -1,3 +1,6 @@
+// Husam Almanakly and Ali Ghuman - class that implements a spring boot controller for the mosques page
+// interacts with google maps API and uses the mapsApi.java class in order to retrieve results
+
 package edu.cooper.ece366.project.server.Controller;
 
 import org.slf4j.Logger;
@@ -15,6 +18,7 @@ import java.io.IOException;
 public class mosqueController {
     private static final Logger LOGGER = LoggerFactory.getLogger(Server.class);
 
+    // Import values from config file
     @Value("${google.api}")
     private String google_api;
 
@@ -24,6 +28,7 @@ public class mosqueController {
     @Value("${google.details}")
     private String details;
 
+    //Api endpoint to retrieve mosques in the area 
     @CrossOrigin
     @GetMapping(path = "/api/mosques", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('USER')")

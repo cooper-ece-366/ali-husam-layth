@@ -1,3 +1,5 @@
+// Code obtained and used for social login system (link on github/wiki)
+
 package edu.cooper.ece366.project.server.Controller;
 
 import edu.cooper.ece366.project.server.exception.ResourceNotFoundException;

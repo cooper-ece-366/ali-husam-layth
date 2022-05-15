@@ -1,3 +1,7 @@
+// Husam Almanakly - this class implements a favorite page spring boot controller.
+// This class 'directs traffic' to the provided api links and uses the favorites and place.java classes
+// in order to obtain and store the data provided from the user (in addition to deleting items)
+
 package edu.cooper.ece366.project.server.Controller;
 
 import org.slf4j.Logger;
@@ -34,6 +38,7 @@ public class favoritesController {
     @Autowired
     private UserRepository userRepository;
 
+    //Set up mapping to send data to for items to be persisted in the mysql database
     @PostMapping("/api/saveFav")
     @PreAuthorize("hasRole('USER')")
     public favorited addItem(@CurrentUser UserPrincipal userPrincipal, @Valid @RequestBody place restaurant) {
@@ -41,7 +46,7 @@ public class favoritesController {
         int userID = ((Long)userPrincipal.getId()).intValue();
         favorited fav = new favorited();
 
-        
+        //Set user ID to match logged in users
         fav.setUserID(userID);
         
         //Converting the Object to JSONString
@@ -69,12 +74,16 @@ public class favoritesController {
         return fav;
     }
 
+    //API endpoint to query the database for stored items
     @GetMapping("/api/getFav")
     @PreAuthorize("hasRole('USER')")
     public String getRestaurants(@CurrentUser UserPrincipal userPrincipal) {
         int userID = ((Long)userPrincipal.getId()).intValue();
+
+        //Obtain all the items saved by the given user
         List<favorited> tmp = favoritesRepository.findByUserID(userID);
 
+        // Parse items and return formatted
         JSONArray restaurants = new JSONArray();
         for(favorited item : tmp){
             JSONObject jo = new JSONObject(item.getPlace());
@@ -91,8 +100,11 @@ public class favoritesController {
     public favorited removeFav(@CurrentUser UserPrincipal userPrincipal, @RequestParam int id) {
 
         int userID = ((Long)userPrincipal.getId()).intValue();
+
+        //Query database for all saved items
         List<favorited> tmp = favoritesRepository.findByUserID(userID);
 
+        //Find the item with matching id and remove from the database
         for(favorited item : tmp){
             if(item.getId() == id){
                 favoritesRepository.delete(item);

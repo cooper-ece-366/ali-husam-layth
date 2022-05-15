@@ -1,3 +1,5 @@
+// Layth Yassin and Husam Almanakly - Server class that starts the spring boot application
+
 package edu.cooper.ece366.project.server;
 
 import edu.cooper.ece366.project.server.config.AppProperties;

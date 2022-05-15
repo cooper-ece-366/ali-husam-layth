@@ -1,3 +1,5 @@
+// Ali Ghuman - Test class for links.java using testng
+
 package edu.cooper.ece366.project.server;
 
 import java.io.IOException;
@@ -9,7 +11,6 @@ import org.testng.annotations.Test;
 
 import edu.cooper.ece366.project.server.Components.links;
 
-//Ali worked on this class
 public class linkTest {
 	public static final String LINK_ID_TEST = "10";
 	public static final String LINK_URL_TEST = "url";

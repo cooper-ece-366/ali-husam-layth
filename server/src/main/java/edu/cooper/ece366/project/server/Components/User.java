@@ -1,3 +1,5 @@
+// User component class implemented from social login used (link given on github/wiki)
+
 package edu.cooper.ece366.project.server.Components;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;

@@ -1,3 +1,5 @@
+// Code obtained from social login system (link on wiki/github)
+
 package edu.cooper.ece366.project.server.exception;
 
 import org.springframework.http.HttpStatus;

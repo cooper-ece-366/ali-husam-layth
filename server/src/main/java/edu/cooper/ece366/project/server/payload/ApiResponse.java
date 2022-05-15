@@ -1,3 +1,5 @@
+//Code obtained from social login system (link on github/wiki)
+
 package edu.cooper.ece366.project.server.payload;
 
 public class ApiResponse {

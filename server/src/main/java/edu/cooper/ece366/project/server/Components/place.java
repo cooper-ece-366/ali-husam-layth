@@ -3,6 +3,7 @@
 
 package edu.cooper.ece366.project.server.Components;
 
+// Set up class and variables with setters/getters
 public class place {
     
     private String photo; 

@@ -1,3 +1,9 @@
+// Husam Almanakly - this page is used to gather extraneous info for each item queried from a 
+// google maps API call. Things like operational hours and extra photos are obtained and sent
+// back to the controller to send to the MVC
+
+// Ali Ghuman edited and added to this class
+
 package edu.cooper.ece366.project.server.Components;
 import java.io.IOException;
 import java.io.InputStream;
@@ -5,7 +11,6 @@ import org.json.JSONObject;
 import org.jsoup.Jsoup;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-//Husam and Ali worked on this class
 public class links {
     public String placeId;
     public String url;    
@@ -20,15 +25,14 @@ public class links {
         this.google_api = api; 
     }
 
+    // Function to fetch the website and hours attributes from details API
     public void getItems() throws IOException {
-        //System.out.println("Google Api: " + this.google_api);
+
+        //Set up url to connect to the google place details API
         this.url = this.url + this.google_api + "&place_id=" + this.placeId + "&fields=website,opening_hours";
-        // System.out.println(this.url);
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
         JSONObject jo = new JSONObject(doc);
-        // System.out.println("Connected to Place Details API - returning results");
-        // System.out.println(jo);
-
+        
         String site;
         JSONObject hours; 
         try{
@@ -49,6 +53,8 @@ public class links {
         // System.out.println(site); 
     }
     
+
+    // getters to return the hours and website attributes
     public JSONObject getHours() throws IOException {
         return this.hours;
     }
