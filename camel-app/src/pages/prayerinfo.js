@@ -22,7 +22,9 @@ class Salah extends React.Component {
   }
   componentDidMount() {
       let url = BASE_URL + "/api/prayerinfo";
-      fetchGoogle(url).then(response => {
+      var lat = this.props.coords[0]
+      var lng = this.props.coords[1]
+      fetchGoogle(url + "?lat=" + lat + "&lng=" + lng).then(response => {
         this.timeSlice(response);
         this.setState({
             items: response
@@ -36,11 +38,15 @@ class Salah extends React.Component {
     var lng = this.props.coords[1];
     const kaabaN = 21.4224779;
     const kaabaE = 39.8251832;
-    const direction = 58.50816668110658; // TODO: use api to get this instead
     const pathCoordinates = [
         {lat: lat, lng: lng},
         {lat: kaabaN, lng: kaabaE}
     ];
+    const mapStyles = {
+        width: '50%',
+        height: '50%'
+    };
+
     return (
     <React.Fragment>
         <div>
@@ -95,7 +101,7 @@ class Salah extends React.Component {
         <div>
         <Map
           google={this.props.google}
-          zoom={8}
+          zoom={20}
           style={mapStyles}
           initialCenter={{ lat: lat, lng: lng }}
         >
@@ -116,12 +122,8 @@ class Salah extends React.Component {
   }
 };
 
-const mapStyles = {
-  width: '100%',
-  height: '50%',
-};
 
 export default GoogleApiWrapper({
-  apiKey: 'API KEY'
+  apiKey: process.env.REACT_APP_API
 })(Salah);
 
