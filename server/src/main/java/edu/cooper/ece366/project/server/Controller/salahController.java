@@ -23,12 +23,15 @@ public class salahController {
     @Value("${google.api}")
     private String google_api;
 
+    @Value("${google.geocode}")
+    private String google_geocode;
+
     // call salahScraper to obtain prayer times
     @CrossOrigin
     @GetMapping(path = "/api/prayerinfo", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('USER')")
     public String getSalah(@RequestParam String lat, @RequestParam String lng) throws IOException {
-        final salahScraper test = new salahScraper(lat, lng, this.google_api);
+        final salahScraper test = new salahScraper(lat, lng, this.google_api, this.google_geocode);
         LOGGER.info("Connected to IslamicFinder API");
         return test.getItems();
     }

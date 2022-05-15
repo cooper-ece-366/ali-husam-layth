@@ -38,31 +38,24 @@ class Salah extends React.Component {
             items: response
         })
       });
-    });
   }
 
-  render() {
-    // set up coordinate paths for drawing the qibla line from user location to the Kaaba
+  render(){
     let myData = this.state.items.results || {};
     var lat = this.props.coords[0];
     var lng = this.props.coords[1];
     const kaabaN = 21.4224779;
     const kaabaE = 39.8251832;
+    const direction = 58.50816668110658; // TODO: use api to get this instead
     const pathCoordinates = [
       { lat: lat, lng: lng },
       { lat: kaabaN, lng: kaabaE },
     ];
-    const mapStyles = {
-        width: '50%',
-        height: '50%'
-    };
-
     return (
       <React.Fragment>
         <FadeIn transitionDelay="2000" delay="500">
           <div className="prayer-container">
             <h1 className="locations-header-h1">Salah and Prayer Information</h1>
-            {/* while fetching prayer times through api call, display a loading icon */}
             {(!this.state.items.length && Array.isArray(this.state.items)) ||
             this.state.items.status === "INVALID_REQUEST" ? (
               <ReactLoading
@@ -73,69 +66,64 @@ class Salah extends React.Component {
                 width={100}
               />
             ) : (
-            <table className="table table-striped table-bordered">
-            {/* display the prayer times in a table */}
-            <thead>
-            <tr>
-                <th>Salah</th>
-                <th>Time</th>
-            </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Fajr</td>
-                <td>{myData.Fajr}</td>
-              </tr>
-              <tr>
-                <td>Sunrise</td>
-                <td>{myData.Duha}</td>
-              </tr>
-              <tr>
-                <td>Dhuhr</td>
-                <td>{myData.Dhuhr}</td>
-              </tr>
-              <tr>
-                <td>Asr</td>
-                <td>{myData.Asr}</td>
-              </tr>
-              <tr>
-                <td>Maghrib</td>
-                <td>{myData.Maghrib}</td>
-              </tr>
-              <tr>
-                <td>Isha</td>
-                <td>{myData.Isha}</td>
-              </tr>
-            </tbody>
-        </table>
-        )}
-        </div>
-        <div>
-        {/* display map component to show prayer direction */}
-        <Map
-          google={this.props.google}
-          zoom={20}
-          style={mapStyles}
-          initialCenter={{ lat: lat, lng: lng }}
-        >
-        {/* draw the line representing the prayer direction on the map */}
-          <Marker position={{lat: lat, lng: lng}} />
-          <Marker position={{lat: kaabaN, lng: kaabaE}} />
-        <Polyline
-        path={pathCoordinates}
-        options={{
-          geodesic: true,
-          strokeColor: '#669DF6',
-          strokeOpacity: 1.0,
-          strokeWeight: 2,
-        }}/>
-        </Map>
-        </div>
-        </FadeIn>
-        </React.Fragment>
+                <div className="prayer-info">
+                  <div className="sunrise">
+                    <div className="prayer-name">Sunrise</div>
+                    <FontAwesomeIcon className='sun-icon pulse' icon={faSun} />
+                    <div className="time">{myData.Duha}</div>
+                  </div>
+                  <div className="prayer-item fajr">
+                    <div className="prayer-name">Fajr</div>
+                    <div className="time">{myData.Fajr}</div>
+                  </div>
+                  <div className="prayer-item dhuhr">
+                    <div className="prayer-name">Dhuhr</div>
+                    <div className="time">{myData.Dhuhr}</div>
+                  </div>
+                  <div className="prayer-item asr">
+                    <div className="prayer-name">Asr</div>
+                    <div className="time">{myData.Asr}</div>
+                  </div>
+                  <div className="prayer-item isha">
+                    <div className="prayer-name">Maghrib</div>
+                    <div className="time">{myData.Maghrib}</div>
+                  </div>
+                  <div className="prayer-item isha">
+                    <div className="prayer-name">Isha</div>
+                    <div className="time">{myData.Isha}</div>
+                  </div>
+                </div>
+            )}
+          <Map
+            className="map"
+            google={this.props.google}
+            zoom={20}
+            style={mapStyles}
+            initialCenter={{ lat: lat, lng: lng }}
+          >
+            <Marker position={{ lat: lat, lng: lng }} />
+            <Marker position={{ lat: kaabaN, lng: kaabaE }} />
+            <Polyline
+              path={pathCoordinates}
+              options={{
+                geodesic: true,
+                strokeColor: "#669DF6",
+                strokeOpacity: 1.0,
+                strokeWeight: 2,
+              }}
+            />
+          </Map>
+          </div>
+      </FadeIn>
+      </React.Fragment>
     );
   }
 }
+
+const mapStyles = {
+  width: "100%",
+  height: "650px",
+};
 
 
 export default GoogleApiWrapper({

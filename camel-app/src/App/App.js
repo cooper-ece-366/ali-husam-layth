@@ -1,3 +1,5 @@
+// Husam Almanakly, Layth Yassin, and Ali Ghuman - Main Application page
+
 import React, { Component } from "react";
 // import Navbar from '../Components';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -70,6 +72,8 @@ class App extends Component {
                 });
             });
     }
+
+    // Husam Almanakly - Function to get users geocordinates using Geocoder library
     getCoords(city) {
       var geocoder = new google.maps.Geocoder();
       var address = city;
@@ -152,6 +156,7 @@ class App extends Component {
     }
   }
 
+    //Display each component
     render() {
         if (this.state.loading) {
             return <LoadingIndicator />;

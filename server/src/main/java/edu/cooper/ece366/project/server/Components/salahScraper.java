@@ -14,11 +14,13 @@ public class salahScraper {
     String lat;
     String lng;
     String google_api;
+    String url; 
 
-    public salahScraper(String lat, String lng, String google_api) throws IOException {
+    public salahScraper(String lat, String lng, String google_api, String url) throws IOException {
         this.lat = lat;
         this.lng = lng;
         this.google_api = google_api;
+        this.url = url;
     }
 
     // obtain zip code and country code given latitude and longitude coordinates for use in IslamicFinder api
@@ -27,7 +29,7 @@ public class salahScraper {
         String countryCode = "";
 
         // use geocode api to obtain JSON containing addresses near the latitude and longitude coordinates
-        String url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=" + lat + "," + lng + "&key=" + this.google_api;
+        String url = this.url + lat + "," + lng + "&key=" + this.google_api;
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
         JSONObject jsonObj = new JSONObject(doc);
         JSONArray results = jsonObj.getJSONArray("results");
