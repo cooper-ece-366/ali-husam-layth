@@ -1,3 +1,5 @@
+// Code from social login system
+
 package edu.cooper.ece366.project.server.security;
 
 import org.springframework.security.core.annotation.AuthenticationPrincipal;

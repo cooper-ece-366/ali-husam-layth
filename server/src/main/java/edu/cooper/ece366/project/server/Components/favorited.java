@@ -1,3 +1,6 @@
+// Husam Almanakly - this page is the favorited items class used by JPA to store the specified objects
+// a user intends to save for later!
+
 package edu.cooper.ece366.project.server.Components;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -11,8 +14,8 @@ import java.util.List;
     @UniqueConstraint(columnNames = {"userID", "name"})
 })
 public class favorited {
+    
     // Fields
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,31 +36,24 @@ public class favorited {
     public void setId(Long id){
         this.id = id; 
     }
-
     public Long getId(){
         return this.id; 
     }
-
     public void setPlace(String place){
         this.place = place;
     }
-
     public String getPlace(){
         return this.place;
     }
-
     public void setUserID(int userID){
         this.userID = userID;
     }
-
     public int getUserID(){
         return this.userID;
     }
-
     public void setName(String name){
         this.name = name;
     }
-
     public String getName(){
         return this.name;
     }

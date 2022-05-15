@@ -1,3 +1,5 @@
+// Properties file used from social login system used (code on github/wiki)
+
 package edu.cooper.ece366.project.server.config;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;

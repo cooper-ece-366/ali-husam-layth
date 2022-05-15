@@ -1,3 +1,5 @@
+// Class obtained from social login system used (link on github/wiki)
+
 package edu.cooper.ece366.project.server.exception;
 
 import org.springframework.security.core.AuthenticationException;

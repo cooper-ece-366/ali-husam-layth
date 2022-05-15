@@ -1,3 +1,6 @@
+// Husam Almanakly - this class implements a spring boot controller class for the restaurants
+// page. This page interacts with the google places api using the mapsApi.java (and links.java) class
+
 package edu.cooper.ece366.project.server.Controller;
 
 import org.slf4j.Logger;
@@ -15,6 +18,7 @@ import java.io.IOException;
 public class restaurantController {
     private static final Logger LOGGER = LoggerFactory.getLogger(Server.class);
 
+    //Import configuration variables
     @Value("${google.api}")
     private String google_api;
 
@@ -24,6 +28,8 @@ public class restaurantController {
     @Value("${google.details}")
     private String details;
 
+
+    //Api endpoint to retrieve restaurants
     @CrossOrigin
     @GetMapping(path = "/api/restaurants", produces = MediaType.APPLICATION_JSON_VALUE)
     @PreAuthorize("hasRole('USER')")

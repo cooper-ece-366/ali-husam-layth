@@ -1,3 +1,10 @@
+// Husam Almanakly - this class is used by the restaurant and mosque controller spring
+// classes in order to communicate with the Google Places API. Using the nearby search feature, 
+// this class returns results given a type of search, lattitude and longitude coordinates, and 
+// the next page of results
+
+// Ali Ghuman edited and added to this class
+
 package edu.cooper.ece366.project.server.Components;
 
 import java.io.IOException;
@@ -7,11 +14,9 @@ import org.json.JSONArray;
 import org.jsoup.Jsoup;
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-//Husam and Ali worked on this class
 @ConfigurationProperties(prefix = "google")
 public class mapsApi {
     // Get current location or given location
-
 
     String keyword;
     String url;
@@ -22,6 +27,7 @@ public class mapsApi {
     String nextPage; 
     String details;
 
+    //Constructor to initalize all class variables
     public mapsApi(String keyword, String google_api, String type, String lat, String lng, String url, String details){
         this.keyword = keyword;
         this.google_api = google_api;
@@ -33,6 +39,7 @@ public class mapsApi {
         this.details = details; 
     }
 
+    //Getter to get the links and hours of each place (using links.java class)
     public JSONArray getLinks(JSONArray keys) throws IOException{
         for(int i=0; i<keys.length(); i++){
             String key = (keys.getJSONObject(i)).getString("place_id"); // Here's your key
@@ -50,6 +57,7 @@ public class mapsApi {
     }
 
 
+    // Getter to make api call to Google to get first 20 results
     public String getItems() throws IOException {
         //System.out.println("Google Api: " + this.google_api);
         this.url = this.url + this.keyword + "&location=" + this.lat + "," + this.lng + "&radius=20000&type=" + this.type + "&key=" + this.google_api;
@@ -64,6 +72,7 @@ public class mapsApi {
         return jo.toString();
     }
 
+    // Function to obtain next 20 results
     public String getNext(String nextPage) throws IOException{
         // System.out.println(nextPage);
         this.url = this.url + "1" + "&key=" + this.google_api + "&pagetoken=" + nextPage;

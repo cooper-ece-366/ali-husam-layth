@@ -1,3 +1,6 @@
+// Code used from social login system - this class implements a spring boot controller 
+// for login and authorization
+
 package edu.cooper.ece366.project.server.Controller;
 
 import edu.cooper.ece366.project.server.Server;

@@ -1,4 +1,6 @@
-// Author: Layth Yassin
+// Layth Yassin - this page implements a spring boot controller for the prayer info
+// page. This interacts with the IslamicFinder api using the salahScraper.java class
+
 package edu.cooper.ece366.project.server.Controller;
 
 import org.slf4j.Logger;

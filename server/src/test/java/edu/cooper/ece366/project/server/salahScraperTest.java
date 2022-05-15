@@ -1,3 +1,5 @@
+// Ali Ghuman - testng class for salahScraper.java component
+
 package edu.cooper.ece366.project.server;
 
 import java.io.IOException;

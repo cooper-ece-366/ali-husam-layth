@@ -1,3 +1,5 @@
+// Code from social login system
+
 package edu.cooper.ece366.project.server.security.oauth2.user;
 
 import edu.cooper.ece366.project.server.exception.OAuth2AuthenticationProcessingException;
