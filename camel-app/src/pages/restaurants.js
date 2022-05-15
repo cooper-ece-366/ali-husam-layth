@@ -12,7 +12,6 @@ class Restaurants extends Template {
   }
   url = BASE_URL + "/api/restaurants";
 
-  //TODO: Get place url by making google place api call (additional to nearby search, consider modifying server and client calls)
   render() {
     var city = "";
     if (this.state.city) {

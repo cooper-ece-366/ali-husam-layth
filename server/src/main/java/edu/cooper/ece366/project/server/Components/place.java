@@ -1,6 +1,10 @@
+// Husam Almanakly - this is a POJO for use in the favoritesController to specify the format for 
+// the post data to be received in 
+
 package edu.cooper.ece366.project.server.Components;
 
-public class restaurant {
+public class place {
+    
     private String photo; 
     private String name; 
     private String rating; 

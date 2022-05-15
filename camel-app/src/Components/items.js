@@ -1,5 +1,10 @@
 import React, {useState} from "react";
+import { saveItem } from "../utils/apiCalls";
+import { BASE_URL } from "../constants";
 import Popup from "./popup";
+import Alert from "react-s-alert";
+import "react-s-alert/dist/s-alert-default.css";
+import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 
 const Item = (props) => {
@@ -7,6 +12,24 @@ const Item = (props) => {
  
   const togglePopup = () => {
     setIsOpen(!isOpen);
+  }
+
+  const favorite = () => {
+    let url = BASE_URL + "/api/saveFav"
+    
+    let values = {
+      "photo": props.photo_reference,
+      "website": props.website,
+      "vicinity": props.vicinity, 
+      "name": props.place_name, 
+      "rating": props.rating
+    }
+
+    saveItem(url, values)
+
+    Alert.success("Place Saved!")
+    
+    return
   }
 
   return (
@@ -46,6 +69,12 @@ const Item = (props) => {
                   content={props.hours.weekday_text}
                   handleClose={togglePopup}
                 />}
+              <input
+                className="next-button"
+                type="button"
+                value="Save"
+                onClick={favorite}
+              />
             </div>
           </div>
         </div>

@@ -145,11 +145,11 @@ class App extends Component {
     };
 
     //Geolocation services
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(success, errors, options);
-      } else {
-        alert("Sorry Not available!");
-      }
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(success, errors, options);
+    } else {
+      alert("Sorry Not available!");
+    }
   }
 
     render() {

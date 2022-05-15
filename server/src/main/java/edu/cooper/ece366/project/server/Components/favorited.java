@@ -7,10 +7,10 @@ import javax.validation.constraints.NotNull;
 import java.util.List;
 
 @Entity
-@Table(name = "favoriteRestaurants", uniqueConstraints = {
-    @UniqueConstraint(columnNames = {"userID", "restaurant"})
+@Table(name = "favorited", uniqueConstraints = {
+    @UniqueConstraint(columnNames = {"userID", "name"})
 })
-public class favoriteRestaurants {
+public class favorited {
     // Fields
 
     @Id
@@ -20,10 +20,13 @@ public class favoriteRestaurants {
     @Column
     private int userID;
 
-    @Column
-    private String restaurant;
+    @Column 
+    private String name; 
 
-    public favoriteRestaurants(){
+    @Column(length = 1000)
+    private String place;
+
+    public favorited(){
     }
     
     //Setters and Getters
@@ -35,12 +38,12 @@ public class favoriteRestaurants {
         return this.id; 
     }
 
-    public void setRestaurant(String restaurant){
-        this.restaurant = restaurant;
+    public void setPlace(String place){
+        this.place = place;
     }
 
-    public String getRestaurant(){
-        return this.restaurant;
+    public String getPlace(){
+        return this.place;
     }
 
     public void setUserID(int userID){
@@ -51,5 +54,11 @@ public class favoriteRestaurants {
         return this.userID;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
 
+    public String getName(){
+        return this.name;
+    }
 }

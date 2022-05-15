@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Favorited from "../../pages/favorited"
 import './Profile.css';
 
 class Profile extends Component {
@@ -28,7 +29,8 @@ class Profile extends Component {
                            <p className="profile-email">{this.props.currentUser.email}</p>
                         </div>
                     </div>
-                </div>    
+                </div> 
+                <Favorited></Favorited>   
             </div>
         );
     }
