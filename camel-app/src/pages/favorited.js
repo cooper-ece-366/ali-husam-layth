@@ -1,3 +1,4 @@
+//Ali and Husam worked on this 
 import React, { useState, useEffect } from "react";
 import "../App/App.css";
 import "./items.css";
@@ -11,6 +12,8 @@ import Alert from "react-s-alert";
 import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
+//This renders the favorites page. This page is used to display everything the user has favorited
+//may it be restaurants or mosques
 class Favorited extends React.Component {
   constructor() {
     super();
@@ -19,6 +22,7 @@ class Favorited extends React.Component {
       };
   }
 
+  //function to delete item from favorites page
   delItem = (removeID) => {
       let tmp = this.state.items.filter((place) => place.id !== removeID)  
       this.setState({

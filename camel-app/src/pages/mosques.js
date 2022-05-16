@@ -1,3 +1,4 @@
+//Ali and Husam worked on this 
 import "../App/App.css";
 import "./items.css";
 import { BASE_URL } from "../constants";
@@ -7,6 +8,7 @@ import Template from "./template";
 import Display from "../Components/dispResults";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
+//This page renders the mosques page. This page is for users to find mosques nearby 
 class Masjids extends Template {
   constructor() {
     super();

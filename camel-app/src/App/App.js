@@ -30,6 +30,7 @@ const google = window.google;
 function message() {
     const apiUrlPrefix = "http://localhost:8080";
 
+    //set up API endpoint
     const testUrl = apiUrlPrefix.concat("/api/message");
     fetch(testUrl)
         .then((response) => response.json())
@@ -42,9 +43,11 @@ function message() {
 }
 message();
 
+//set up the App
 class App extends Component {
   constructor(props) {
     super(props);
+    //set up the App
     this.state = {
       authenticated: false,
       currentUser: null,
@@ -56,7 +59,7 @@ class App extends Component {
         this.loadCurrentlyLoggedInUser.bind(this);
         this.handleLogout = this.handleLogout.bind(this);
     }
-
+    //load the logged in User, if they're logged in
     loadCurrentlyLoggedInUser() {
         getCurrentUser()
             .then((response) => {
@@ -92,6 +95,7 @@ class App extends Component {
       })
     }
 
+    //logout the User
     handleLogout() {
         localStorage.removeItem(ACCESS_TOKEN);
         this.setState({
@@ -101,7 +105,7 @@ class App extends Component {
         Alert.success("You're safely logged out!");
         window.location.href = BASE;
     }
-
+  //get position 
   success(pos) {
       var crd = pos.coords;
 

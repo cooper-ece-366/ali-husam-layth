@@ -1,8 +1,9 @@
 // Pop up code obtained at https://www.cluemediator.com/create-simple-popup-in-reactjs
-
+//Husam found this component
 import React from "react";
 import "../pages/popup.css";
 
+//Popup for displaying times
 const Popup = props => {
   return (
     <div className="popup-box">

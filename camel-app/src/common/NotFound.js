@@ -1,7 +1,9 @@
+//Husam created this component
 import React, { Component } from 'react';
 import './NotFound.css';
 import { Link } from 'react-router-dom';
 
+//Component for page not found
 class NotFound extends Component {
     render() {
         return (

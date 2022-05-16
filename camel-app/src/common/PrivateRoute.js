@@ -1,3 +1,4 @@
+//Husam created this component
 import React from 'react';
 import {
     Route,
@@ -5,6 +6,7 @@ import {
   } from "react-router-dom";
   
   
+  //create a private route
 const PrivateRoute = ({ component: Component, authenticated, ...rest }) => (
     <Route
       {...rest}

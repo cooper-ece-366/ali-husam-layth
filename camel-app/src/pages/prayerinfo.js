@@ -1,4 +1,4 @@
-// Author: Layth Yassin
+// Author: Layth Yassin and Ali Ghuman
 import React from "react";
 import "../App/App.css";
 import "./prayerinfo.css";
@@ -10,6 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSun } from "@fortawesome/free-solid-svg-icons";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
+//This page is used to render the prayers page which is used to get the prayer times by location.
 class Salah extends React.Component {
   constructor() {
     super();

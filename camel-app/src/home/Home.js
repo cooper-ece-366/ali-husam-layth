@@ -1,3 +1,4 @@
+//Ali and Husam worked on this 
 import React, { Component } from "react";
 import "../constants/index.js";
 import "./Home.css";
@@ -6,6 +7,7 @@ import { THE_APP_NAME } from "../constants";
 import { Link } from "react-router-dom";
 import FadeIn from "react-fade-in";
 
+//Used to render the home page 
 class Home extends Component {
     render() {
         return (
