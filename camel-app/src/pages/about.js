@@ -1,9 +1,11 @@
+//Ali and Husam worked on this 
 import React from "react";
 import "../App/App.css";
 import "./about.css";
 import listCamel from "../img/list-camel.png";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
+//Used to render the about page which is concerned with telling the User about the app 
 class About extends React.Component {
     constructor() {
         super();

@@ -1,3 +1,4 @@
+//Husam and Ali worked on this component
 import React from "react";
 import { onSubmit } from "../utils/apiCalls";
 import ReactLoading from "react-loading";
@@ -13,6 +14,7 @@ import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 import "../pages/items.css";
 
+//this component is used to display the main portion of the restaurants and mosques page
 const Display = (props) => {
   return (
     <>

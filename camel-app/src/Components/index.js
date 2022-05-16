@@ -1,8 +1,10 @@
+//Navbar found by Husam
 import React from "react";
 import { Nav, NavLink, NavMenu } from "./NavbarElements";
 
 // Navigation bar info found at https://www.geeksforgeeks.org/how-to-create-a-multi-page-website-using-react-js/
 
+//Setting up our navbar
 const Navbar = () => {
   return (
     <>

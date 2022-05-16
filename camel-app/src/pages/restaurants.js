@@ -1,3 +1,4 @@
+//Ali and Husam worked on this 
 import React, { useState, useEffect } from "react";
 import "../App/App.css";
 import "./items.css";
@@ -6,6 +7,8 @@ import Template from "./template";
 import Display from "../Components/dispResults";
 import FadeIn from "react-fade-in/lib/FadeIn";
 
+//This page is used to render the restaurants page. This allows the user to find halal 
+// restaurants near them or near a given location
 class Restaurants extends Template {
   constructor() {
     super();
@@ -19,7 +22,6 @@ class Restaurants extends Template {
     }
     console.log(this.state.items)
     
-    // console.log(this.state.items);
     return (
       <FadeIn transitionDelay="1000" delay="500">
         <div className="App-header">

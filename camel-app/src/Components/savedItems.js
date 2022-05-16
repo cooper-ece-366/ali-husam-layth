@@ -1,3 +1,4 @@
+//Husam worked on this code. 
 import React, {useState} from "react";
 import { delFav } from "../utils/apiCalls";
 import { BASE_URL } from "../constants";
@@ -6,11 +7,13 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 
+//Used to display the saved items in the favorites page
 class SavedItem extends React.Component{
     constructor() {
         super();
         this.deleteItem.bind(this);
     }
+    //function to delete the items
     deleteItem = () => {
         let url = BASE_URL + "/api/removeFav"
         delFav(url, this.props.id)
@@ -20,6 +23,7 @@ class SavedItem extends React.Component{
         return
     }
     
+    //render everything the user has favorited
     render(){
         return (
         <>

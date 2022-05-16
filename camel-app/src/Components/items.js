@@ -1,3 +1,4 @@
+//Ali and Husam worked on this component
 import React, {useState} from "react";
 import { saveItem } from "../utils/apiCalls";
 import { BASE_URL } from "../constants";
@@ -7,6 +8,7 @@ import "react-s-alert/dist/s-alert-default.css";
 import "react-s-alert/dist/s-alert-css-effects/slide.css";
 
 
+//Component used to create each individial item in the mosques and restaurants page
 const Item = (props) => {
   const [isOpen, setIsOpen] = useState(false);
  
@@ -14,6 +16,7 @@ const Item = (props) => {
     setIsOpen(!isOpen);
   }
 
+  //Husam: set an item as favorited
   const favorite = () => {
     let url = BASE_URL + "/api/saveFav"
     

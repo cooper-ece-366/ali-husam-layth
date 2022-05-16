@@ -1,3 +1,4 @@
+//Ali and Husam created this component 
 import React, { Component } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { THE_APP_NAME } from "../constants";
@@ -5,6 +6,7 @@ import { logout } from "../utils/apiCalls";
 import "./AppHeader.css";
 import icon from '../icon.jpeg';
 
+//Component for the header of the application
 class AppHeader extends Component {
     render() {
         return (
