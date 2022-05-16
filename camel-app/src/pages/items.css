@@ -36,7 +36,7 @@
   gap: 30px;
   list-style: none;
   margin: 30px 10px 0px;
-  padding: 0px 0px 50px 0px;
+  padding: 0px; 
 }
 .item-flex-container {
   margin-top: 5px;
@@ -68,7 +68,7 @@
   text-align: left;
 }
 
-.item-flex-item {
+.item-flex-items {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
