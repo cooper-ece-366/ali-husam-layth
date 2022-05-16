@@ -11,7 +11,7 @@ import org.testng.annotations.Test;
 
 import edu.cooper.ece366.project.server.Components.links;
 
-public class linkTest {
+public class LinkTest {
 	public static final String LINK_ID_TEST = "10";
 	public static final String LINK_URL_TEST = "url";
 	public static final String LINK_API_TEST = "api";
