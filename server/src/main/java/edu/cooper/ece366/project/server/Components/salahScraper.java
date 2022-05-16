@@ -14,13 +14,13 @@ public class salahScraper {
     String lat;
     String lng;
     String google_api;
-    String url; 
+    String geocode; 
 
-    public salahScraper(String lat, String lng, String google_api, String url) throws IOException {
+    public salahScraper(String lat, String lng, String google_api, String geocode) throws IOException {
         this.lat = lat;
         this.lng = lng;
         this.google_api = google_api;
-        this.url = url;
+        this.geocode = geocode;
     }
 
     // obtain zip code and country code given latitude and longitude coordinates for use in IslamicFinder api
@@ -29,7 +29,7 @@ public class salahScraper {
         String countryCode = "";
 
         // use geocode api to obtain JSON containing addresses near the latitude and longitude coordinates
-        String url = this.url + lat + "," + lng + "&key=" + this.google_api;
+        String url = this.geocode + lat + "," + lng + "&key=" + this.google_api;
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
         JSONObject jsonObj = new JSONObject(doc);
         JSONArray results = jsonObj.getJSONArray("results");
@@ -72,7 +72,6 @@ public class salahScraper {
         String url = "https://www.islamicfinder.us/index.php/api/prayer_times?country=" + countryCode + "&zipcode=" + zipCode;
         String doc = Jsoup.connect(url).ignoreContentType(true).execute().body();
         System.out.println("Connected to IslamicFinder API - returning results...");
-
         return doc;
     }
 }

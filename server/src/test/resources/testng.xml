@@ -9,7 +9,32 @@
 	</test>
 	<test name="Testing_MapsApi">
 		<classes>
-			<class name="edu.cooper.ece366.project.server.MapsApiTest" />
+			<class name="edu.cooper.ece366.project.server.mapsApiTest" />
+		</classes>
+	</test>
+	<test name="Testing_Messages">
+		<classes>
+			<class name="edu.cooper.ece366.project.server.messageTest" />
+		</classes>
+	</test>
+	<test name="Testing_SalahScraper">
+		<classes>
+			<class name="edu.cooper.ece366.project.server.salahScraperTest" />
+		</classes>
+	</test>
+	<test name="Testing_Place">
+		<classes>
+			<class name="edu.cooper.ece366.project.server.placeTest" />
+		</classes>
+	</test>
+	<test name="Testing_Favorited">
+		<classes>
+			<class name="edu.cooper.ece366.project.server.favoritedTest" />
+		</classes>
+	</test>
+	<test name="Testing_User">
+		<classes>
+			<class name="edu.cooper.ece366.project.server.userTest" />
 		</classes>
 	</test>
 </suite>

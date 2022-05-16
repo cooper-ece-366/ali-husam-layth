@@ -13,6 +13,7 @@ import edu.cooper.ece366.project.server.Components.mapsApi;
 import org.springframework.beans.factory.annotation.Value;
 
 public class mapsApiTest {
+
 	public static final String MAPS_KEYWORD_TEST = "halal";
 	public static final String MAPS_URL_TEST = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?keyword=";
 	public static final String MAPS_API_TEST = "AIzaSyDgJRYms334dF4NCHF8FcDx1b_iF_UEWUI";
