@@ -33,6 +33,12 @@ Camel solves this and brings the user an all you need application with all the n
 3. Update the configuration files with your information. In the server/src/main/resources directory, update the application.properties-template file to a Google API Key (in the google.api attribute). If you haven't been provided one you can make an account at [this link](https://developers.google.com/maps/documentation/places/web-service/get-api-key)
 4. Also update the application.yml file in the same directory with your mysql password (underneath spring.datasource.password). The database will run on port 3306, which can also be altered here if needed
 5. On the front end side, change directories to camel-app/.env and update your API Key there in the REACT_APP_API field
-6. Once you've updated the configuration files, you run the application. Start the server using the bash files in the main directory. Run the command to run the server on port 8080
-    *./clean.sh && ./build.sh && ./run.sh*
-7. To start the React App, change directories to camel-app. Install any dependencies using *npm install*. Run the applicaiton with *npm start*. The application will run on port 3000
+6. Once you've updated the configuration files, you can run the application. Start the server using the bash files in the main directory. Run the following command to run the server on port 8080
+```
+./clean.sh && ./build.sh && ./run.sh
+```
+7. To start the React App, change directories to camel-app. Install any dependencies and run the React Application on port 3000 using 
+```
+npm install && npm start
+```
+8. Now you can use all the above features! Make sure to login to see the main pages
